@@ -117,7 +117,16 @@ def weight_digest(parameters):
 def collator(model, train=False, seed=0):
     from training.data.collate import CollatorConfig, SystemOneCollator
 
-    return SystemOneCollator(model.tokenizer, CollatorConfig(
+    def tokenize(*args, **kwargs):
+        # Check the actual augmented prompt too; order/ID changes can alter token counts.
+        kwargs.update(truncation=False)
+        kwargs.pop("max_length", None)
+        encoded = model.tokenizer(*args, **kwargs)
+        if int(encoded["attention_mask"].sum(-1).max()) > model.config.max_length:
+            raise ValueError("Overlength rendered batch; refusing silent truncation")
+        return encoded
+
+    return SystemOneCollator(tokenize, CollatorConfig(
         max_length=model.config.max_length, num_slots=model.config.num_slots,
         head_type="pointer", shuffle_options=True, seed=seed,
     ), train=train)
@@ -131,11 +140,14 @@ def check_lengths(model, rows):
     maximum = 0
     for row in rows:
         example = Example.from_dict(row)
-        text, _ = build_prompt(example.state, example.to_question())
-        size = len(model.tokenizer.encode(text))
-        maximum = max(maximum, size)
-        if size > model.config.max_length:
-            raise ValueError(f"Overlength training/eval row: {size} tokens")
+        if len(example.options) > model.config.num_slots:
+            raise ValueError("Example has more options than this checkpoint supports")
+        for instructions in example.all_instructions():
+            text, _ = build_prompt(example.state, example.to_question(instructions))
+            size = len(model.tokenizer.encode(text)) + int(model.config.force_bos)
+            maximum = max(maximum, size)
+            if size > model.config.max_length:
+                raise ValueError(f"Overlength training/eval row: {size} tokens")
     return maximum
 
 

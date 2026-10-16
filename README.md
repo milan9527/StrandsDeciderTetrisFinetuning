@@ -4,6 +4,27 @@
 Strands Decider v19 的 LoRA 和 pointer 决策头，并用独立测试题及完整对局评估。
 本轮使用 SFT，没有教师模型调用，也没有运行 PPO 或 GRPO。
 
+## 一键微调自己的决策数据
+
+现在也支持通用的带标签 choice 数据。编辑示例中的模型路径，即可用一条命令完成
+数据审计、SFT、原版对照、校准、检查点重新加载验证和质量门槛判定：
+
+```bash
+uv sync --locked
+cp examples/finetune.json my-finetune.json
+# 在 my-finetune.json 中填写原始 Decider 和基座目录。
+uv run python finetune.py --data /path/to/choices.jsonl \
+  --config my-finetune.json --output artifacts/runs/my-decider-v1
+```
+
+支持本地/S3、JSONL/CSV/gzip、自动分区或已有四分区。
+完整训练需要 CUDA；`--device cpu --smoke` 可做真实权重流程检查。
+结果保存在 `REPORT.md` 和 `report.json`；未达到质量门槛返回退出码 2。
+
+见 [完整使用说明](docs/FINETUNE.md)、[配置示例](examples/finetune.json)
+和 [数据示例](examples/choices.jsonl)。本入口不自动部署或调整线上服务。
+真实 CPU 流程检查及测试范围见 [验证记录](docs/VERIFICATION.md)。
+
 ## 已完成的首轮实验
 
 2026-10-16，在现有 NVIDIA L4 实例训练 12,590 条样本、1 epoch、787 步。
@@ -57,6 +78,7 @@ bash finetuning/run_gpu.sh
 
 | 路径 | 内容 |
 | --- | --- |
+| `finetune.py`、`docs/`、`examples/` | 统一入口、中文说明及配置/数据示例 |
 | `finetuning/` | 数据、训练、校准、评估、汇总和可选 ECS 执行入口 |
 | `backend/` | 固定版本的棋盘引擎、输入格式、候选选择及对局逻辑 |
 | `scripts/` | 原始回放校验逻辑、报告验证及已有服务的有限对局工具 |

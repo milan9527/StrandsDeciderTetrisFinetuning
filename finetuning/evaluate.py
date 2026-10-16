@@ -9,7 +9,7 @@ from pathlib import Path
 from time import perf_counter
 
 from backend.session import Session
-from finetuning.data import audit
+from finetuning.datasets import audit
 from finetuning.runtime import (
     batches,
     check_lengths,
@@ -29,20 +29,20 @@ def choice_report(model, rows, device, batch_size):
     swapped = predict(model, reversed_rows, device, batch_size)
     by_task = defaultdict(lambda: {"correct": 0, "rows": 0})
     same = 0
-    for row, rev, first, second in zip(
-        rows, reversed_rows, result["predictions"], swapped["predictions"], strict=True
+    for row, first, second in zip(
+        rows, result["predictions"], swapped["predictions"], strict=True
     ):
         stats = by_task[row["task"]]
         stats["rows"] += 1
         stats["correct"] += first == row["label"]
-        same += row["_meta"]["candidate_ids"][first] == rev["_meta"]["candidate_ids"][second]
+        same += first == len(row["options"]) - 1 - second
     result.pop("predictions")
     swapped.pop("predictions")
     return {"canonical": result, "reversed_and_renamed": swapped,
             "same_actual_choice_fraction": same / len(rows), "by_task": dict(by_task)}
 
 
-def calibrate(model, rows, device, batch_size):
+def calibrate(model, rows, device, batch_size, scope="engine_dominance_questions_only_not_game_win_probability"):
     """Fit choice temperature by NLL on the dedicated calibration split only."""
     import torch
     from training.data.format import Example
@@ -69,7 +69,7 @@ def calibrate(model, rows, device, batch_size):
     model.config.temperature_by_kind = {"choice": temperatures[best]}
     model.config.temperature = 1.0
     return {"method": "choice_temperature_grid_minimum_nll",
-            "scope": "engine_dominance_questions_only_not_game_win_probability",
+            "scope": scope,
             "split": "calibration", "rows": len(rows), "temperature": temperatures[best],
             "calibration_nll": losses[best]}
 
@@ -135,20 +135,32 @@ def run(args):
     if args.device == "cpu":
         model.float()
     test = read_rows(args.data / "test.jsonl")
+    if getattr(args, "limit", 0):
+        test = test[:args.limit]
     check_lengths(model, test)
     report = {"checkpoint": str(args.checkpoint),
-              "data_manifest": json.loads((args.data / "manifest.json").read_text())}
+              "data_manifest": json.loads((args.data / "manifest.json").read_text()),
+              "evaluation_kind": "smoke_subset" if getattr(args, "limit", 0) else "full_test"}
     # This evaluates a frozen checkpoint; it does not select one against the test split.
     if args.calibrate:
         calibration_rows = read_rows(args.data / "calibration.jsonl")
+        if getattr(args, "limit", 0):
+            calibration_rows = calibration_rows[:args.limit]
         check_lengths(model, calibration_rows)
-        report["calibration"] = calibrate(model, calibration_rows, args.device, args.batch_size)
+        scope = ("engine_dominance_questions_only_not_game_win_probability"
+                 if report["data_manifest"]["label_source"] == "engine_strict_metric_dominance"
+                 else "user_labelled_choice_dataset_only")
+        report["calibration"] = calibrate(model, calibration_rows, args.device, args.batch_size, scope)
         # Never mutate the trained/baseline checkpoint during evaluation.
         model.save_pretrained(str(args.output / "calibrated"))
     report["heldout_choices"] = choice_report(model, test, args.device, args.batch_size)
+    probe_rows = test[:min(16, len(test))]
+    report["reload_probe"] = predict(model, probe_rows, args.device, args.batch_size)
     (args.output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     if not args.skip_games:
         manifest = report["data_manifest"]
+        if manifest.get("label_source") != "engine_strict_metric_dominance":
+            raise ValueError("Full Tetris games require an engine-audited Tetris dataset")
         used = {seed for split in manifest["splits"].values() for seed in split["seeds"]}
         if any(seed in used for seed in args.seeds):
             raise ValueError("Full-game evaluation seeds must be outside all dataset splits")
@@ -172,8 +184,9 @@ def main():
     parser.add_argument("--seeds", type=int, nargs="+", default=[50000, 50001, 50002, 50003, 50004])
     parser.add_argument("--pieces", type=int, default=50)
     parser.add_argument("--model-name", default="strands-decider-tetris-sft")
+    parser.add_argument("--limit", type=int, default=0, help="Smoke evaluation only; never efficacy evidence")
     args = parser.parse_args()
-    if min(args.batch_size, args.pieces) < 1:
+    if min(args.batch_size, args.pieces) < 1 or args.limit < 0:
         parser.error("Counts must be positive")
     run(args)
 

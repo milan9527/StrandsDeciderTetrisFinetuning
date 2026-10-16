@@ -1,0 +1,22 @@
+{
+  "model": {
+    "checkpoint": "/path/to/strands-decider-v19",
+    "base_model": "/path/to/Qwen3.5-2B-Base"
+  },
+  "runtime": {
+    "device": "cuda",
+    "auto_setup": true
+  },
+  "training": {
+    "epochs": 1,
+    "batch_size": 2,
+    "accumulation": 8,
+    "lr": 0.00002,
+    "head_lr": 0.0001
+  },
+  "quality": {
+    "min_accuracy": 0.8,
+    "max_accuracy_drop": 0.0,
+    "min_order_consistency": 0.8
+  }
+}

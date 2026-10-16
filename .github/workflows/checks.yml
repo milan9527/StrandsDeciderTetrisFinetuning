@@ -18,5 +18,6 @@ jobs:
       - uses: astral-sh/setup-uv@v6
       - run: uv sync --locked --extra dev
       - run: uv run pytest -q
-      - run: uv run ruff check backend finetuning scripts tests
+      - run: uv run ruff check backend finetuning scripts tests finetune.py
+      - run: uv run python finetune.py --data examples/choices.jsonl --output artifacts/ci-data-check --validate-only
       - run: uv run python -m scripts.verify_reports

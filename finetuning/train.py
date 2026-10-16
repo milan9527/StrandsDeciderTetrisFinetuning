@@ -9,7 +9,7 @@ import random
 from pathlib import Path
 from time import perf_counter
 
-from finetuning.data import audit
+from finetuning.datasets import audit
 from finetuning.runtime import (
     batches,
     check_lengths,
@@ -63,9 +63,9 @@ def run(args):
     train_rows = read_rows(args.data / "train.jsonl")
     validation = read_rows(args.data / "validation.jsonl")
     if args.smoke:
-        # Real model/engine-labelled rows, but this run is explicitly NOT an efficacy experiment.
-        train_rows = [r for r in train_rows if len(r["options"]) == 2][:args.batch_size]
-        validation = [r for r in validation if len(r["options"]) == 2][:2]
+        # Real model/data, but this run is explicitly NOT an efficacy experiment.
+        train_rows = sorted(train_rows, key=lambda r: len(r["options"]))[:args.batch_size]
+        validation = sorted(validation, key=lambda r: len(r["options"]))[:2]
     max_tokens = check_lengths(model, train_rows + validation)
     baseline = predict(model, validation, args.device, args.batch_size)
     baseline.pop("predictions")
