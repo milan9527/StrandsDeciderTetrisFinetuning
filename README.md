@@ -4,6 +4,12 @@
 Strands Decider v19 的 LoRA 和 pointer 决策头，并用独立测试题及完整对局评估。
 本轮使用 SFT，没有教师模型调用，也没有运行 PPO 或 GRPO。
 
+完整图解见 [俄罗斯方块微调全过程](docs/TETRIS_FINETUNING_WALKTHROUGH.zh.md)，
+涵盖真实训练样本、四份数据的用途、LoRA 更新、GPU 执行、评估和后续上线。
+
+图片：[整体流程](docs/diagrams/tetris-sft-workflow.png) ·
+[LoRA 更新示意](docs/diagrams/lora-training-step.png)。
+
 ## 一键微调自己的决策数据
 
 现在也支持通用的带标签 choice 数据。编辑示例中的模型路径，即可用一条命令完成

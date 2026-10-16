@@ -1,5 +1,8 @@
 # 首轮 Tetris SFT 结果
 
+从标签生成到 GPU 训练、评估和后续部署的解释，见带流程图片的
+[微调全过程](../docs/TETRIS_FINETUNING_WALKTHROUGH.zh.md)。
+
 2026-10-16，在指定的现有 EC2 `i-0daca64f56056aa1c` 上完成训练及独立评估。
 使用 NVIDIA L4 24GB，冻结 Qwen3.5-2B 基座，续训原始 Decider v19 的
 LoRA 和 pointer head。训练数据由游戏引擎自动标注；没有 GPT 教师调用，也没有运行 RL。

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1200" viewBox="0 0 1280 1200" role="img" aria-labelledby="title desc">
+<title id="title">一次 SFT 更新：哪些参数真正发生变化</title><desc id="desc">蓝色实线：前向计算　绿色模块：可训练参数　橙色虚线：参数更新方向</desc>
+<defs><style>text{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif}</style>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/></marker>
+<marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#087F72"/></marker>
+<marker id="amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#B45309"/></marker>
+</defs>
+<rect width="1280" height="1200" fill="#FFFFFF"/>
+<text x="64" y="65" font-size="34" fill="#172B4D" font-weight="700" text-anchor="start">一次 SFT 更新：哪些参数真正发生变化</text>
+<text x="64" y="105" font-size="20" fill="#53657B" font-weight="400" text-anchor="start">蓝色实线：前向计算　绿色模块：可训练参数　橙色虚线：参数更新方向</text>
+<g class="card">
+<rect x="390" y="145" width="500" height="92" rx="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+<text x="412" y="179" font-size="23" fill="#2563EB" font-weight="700" text-anchor="start">棋盘 + 指令 + 候选描述</text>
+<text x="412" y="210" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">分词与向量化，进入 24 层 Qwen 基座</text>
+</g>
+<rect x="220" y="287" width="840" height="365" rx="20" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+<text x="245" y="324" font-size="23" fill="#172B4D" font-weight="700" text-anchor="start">基座内的一个目标线性层</text>
+<path d="M 640 237 L 640 350" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 640 350 L 420 350 L 420 388" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 640 350 L 820 350 L 820 388" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<g class="card">
+<rect x="260" y="388" width="320" height="114" rx="16" fill="#F1F5F9" stroke="#53657B" stroke-width="2"/>
+<text x="282" y="422" font-size="23" fill="#53657B" font-weight="700" text-anchor="start">原始权重 W₀ · 冻结</text>
+<text x="282" y="453" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">计算 W₀x</text>
+<text x="282" y="480" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">原有参数保持不变</text>
+</g>
+<g class="card">
+<rect x="640" y="388" width="360" height="114" rx="16" fill="#ECFDF5" stroke="#087F72" stroke-width="2"/>
+<text x="662" y="422" font-size="23" fill="#087F72" font-weight="700" text-anchor="start">已有 LoRA A / B · 续训</text>
+<text x="662" y="453" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">计算 (α / r) × B(Ax)</text>
+<text x="662" y="480" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">r = 16，α = 32，dropout = 0.05</text>
+</g>
+<path d="M 420 502 L 420 559 L 617 559" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 820 502 L 820 559 L 663 559" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<circle cx="640" cy="559" r="22" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+<text x="640" y="568" font-size="29" fill="#2563EB" font-weight="700" text-anchor="middle">+</text>
+<text x="640" y="619" font-size="21" fill="#172B4D" font-weight="400" text-anchor="middle">后续层继续计算，得到最终向量表示</text>
+<path d="M 640 581 L 640 591" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 640 652 L 640 710" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<g class="card">
+<rect x="390" y="710" width="500" height="96" rx="16" fill="#ECFDF5" stroke="#087F72" stroke-width="2"/>
+<text x="412" y="744" font-size="23" fill="#087F72" font-weight="700" text-anchor="start">Pointer 决策头 · 续训</text>
+<text x="412" y="775" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">结合整道题和各候选的表示，计算候选分数</text>
+</g>
+<path d="M 640 806 L 640 848" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<g class="card">
+<rect x="390" y="848" width="500" height="90" rx="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+<text x="412" y="882" font-size="23" fill="#2563EB" font-weight="700" text-anchor="start">候选概率</text>
+<text x="412" y="913" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">softmax(scores) → P(选项 1)、P(选项 2)…</text>
+</g>
+<path d="M 640 938 L 640 1000" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<g class="card">
+<rect x="60" y="1000" width="260" height="90" rx="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+<text x="82" y="1034" font-size="23" fill="#2563EB" font-weight="700" text-anchor="start">正确标签 y</text>
+<text x="82" y="1065" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">由游戏引擎生成</text>
+</g>
+<path d="M 320 1045 L 390 1045" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<g class="card">
+<rect x="390" y="1000" width="500" height="90" rx="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+<text x="412" y="1034" font-size="23" fill="#2563EB" font-weight="700" text-anchor="start">损失 L = −log P(y)</text>
+<text x="412" y="1065" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">反向传播；梯度累积后由 AdamW 更新</text>
+</g>
+<path d="M 890 1045 L 1150 1045 L 1150 445 L 1000 445" fill="none" stroke="#B45309" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#amber)" stroke-dasharray="9 7"/>
+<path d="M 1150 758 L 890 758" fill="none" stroke="#B45309" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#amber)" stroke-dasharray="9 7"/>
+<text x="1180" y="685" font-size="22" fill="#B45309" font-weight="700" text-anchor="start">更新</text>
+<text x="64" y="1154" font-size="20" fill="#53657B" font-weight="400" text-anchor="start">本轮更新：LoRA 16,819,200 参数 + 决策头 1,053,184 参数；原基座权重冻结。</text>
+</svg>

@@ -2,6 +2,8 @@
 
 新任务推荐使用根目录的 [`finetune.py`](../docs/FINETUNE.md)，统一完成数据导入、
 训练与验证；本页保留首轮 Tetris 实验和底层命令说明。
+本轮实验的原理、真实样本、执行顺序及流程图片见
+[微调全过程](../docs/TETRIS_FINETUNING_WALKTHROUGH.zh.md)。
 
 第一阶段训练单步候选比较：冻结 Qwen3.5-2B 基座，继续训练 v19 已有的 LoRA
 和 pointer 决策头。数据标签来自游戏引擎的严格指标支配关系，没有教师模型调用。
