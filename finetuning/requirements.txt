@@ -1,0 +1,15 @@
+# Install into a separate environment. For CUDA, select the matching PyTorch wheel.
+torch==2.7.1
+transformers==5.17.0
+peft==0.21.0
+accelerate==1.15.0
+tokenizers==0.23.3
+safetensors==0.8.0
+numpy==2.4.6
+pyyaml==6.0.3
+httpx>=0.28,<1
+boto3>=1.40,<2
+fastapi>=0.115,<1
+typer==0.27.3
+rich==15.0.0
+# Also install flash-linear-attention on the Linux CUDA host; do not install it for CPU.

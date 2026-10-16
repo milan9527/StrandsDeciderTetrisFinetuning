@@ -1,0 +1,32 @@
+{
+  "seed": 42,
+  "max_pieces": 50,
+  "placements_before_turn_seven": [
+    "p008",
+    "p005",
+    "p016",
+    "p008",
+    "p023",
+    "p016"
+  ],
+  "original_first_request": {
+    "state": "{\"game\":\"Tetris\",\"board_rows_top_to_bottom\":[\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\",\"..........\"],\"coordinates\":\"x=0..9 left-to-right; y=0..19 top-to-bottom\",\"current_piece\":\"O\",\"next_piece\":\"S\",\"lines_cleared_so_far\":0}",
+    "questions": {
+      "landing": {
+        "type": "choice",
+        "instructions": "Play Tetris on a 10-column, 20-row board. Choose the best reachable landing from THESE candidates. Prefer a placement allowing the next piece to spawn. Avoid creating holes (empty cells below blocks); fewer holes is better. Clear lines when this does not create holes. Keep maximum height, total column heights and adjacent-height differences low to survive and clear future lines. All metrics describe the resulting board after line clears. Use the numerical candidate facts; option IDs do not indicate quality.",
+        "criteria": {
+          "p005": "x=5, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=4, next_piece_can_spawn=True",
+          "p002": "x=2, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=4, next_piece_can_spawn=True",
+          "p007": "x=7, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=4, next_piece_can_spawn=True",
+          "p006": "x=6, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=4, next_piece_can_spawn=True",
+          "p000": "x=0, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=2, next_piece_can_spawn=True",
+          "p004": "x=4, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=4, next_piece_can_spawn=True",
+          "p003": "x=3, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=4, next_piece_can_spawn=True",
+          "p001": "x=1, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=4, next_piece_can_spawn=True",
+          "p008": "x=8, rotation=0, landing_y=18; clears=0, holes_after=0, holes_change=0, max_height=2, sum_heights=4, bumpiness=2, next_piece_can_spawn=True"
+        }
+      }
+    }
+  }
+}

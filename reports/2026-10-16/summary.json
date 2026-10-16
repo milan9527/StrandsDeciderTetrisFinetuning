@@ -1,0 +1,266 @@
+{
+  "training": {
+    "completed_steps": 787,
+    "train_rows": 12590,
+    "validation_rows": 2120,
+    "best_step": 787,
+    "wall_seconds": 3674.22,
+    "max_gpu_memory_bytes": 4831183872
+  },
+  "models": {
+    "baseline": {
+      "choices": {
+        "canonical": {
+          "accuracy": 0.6034816247582205,
+          "mean_nll": 0.8321721190496616,
+          "rows": 2068
+        },
+        "reversed_and_renamed": {
+          "accuracy": 0.6233075435203095,
+          "mean_nll": 0.8482353680945457,
+          "rows": 2068
+        },
+        "same_actual_choice_fraction": 0.3544487427466151,
+        "by_task": {
+          "tetris_dominance_original": {
+            "correct": 590,
+            "rows": 1034
+          },
+          "tetris_dominance_model": {
+            "correct": 658,
+            "rows": 1034
+          }
+        }
+      },
+      "games": {
+        "original": {
+          "games": 5,
+          "reached_piece_limit": 0,
+          "mean_pieces": 38.2,
+          "mean_lines": 1.8,
+          "mean_score": 180.0,
+          "dominated_moves": 91,
+          "total_moves": 191
+        },
+        "model": {
+          "games": 5,
+          "reached_piece_limit": 1,
+          "mean_pieces": 40.8,
+          "mean_lines": 3.0,
+          "mean_score": 320.0,
+          "dominated_moves": 112,
+          "total_moves": 204
+        }
+      },
+      "per_game": [
+        {
+          "seed": 50000,
+          "policy": "original",
+          "pieces": 38,
+          "lines": 1,
+          "score": 100,
+          "finish_reason": "top_out"
+        },
+        {
+          "seed": 50001,
+          "policy": "original",
+          "pieces": 43,
+          "lines": 3,
+          "score": 300,
+          "finish_reason": "top_out"
+        },
+        {
+          "seed": 50002,
+          "policy": "original",
+          "pieces": 36,
+          "lines": 1,
+          "score": 100,
+          "finish_reason": "top_out"
+        },
+        {
+          "seed": 50003,
+          "policy": "original",
+          "pieces": 36,
+          "lines": 2,
+          "score": 200,
+          "finish_reason": "top_out"
+        },
+        {
+          "seed": 50004,
+          "policy": "original",
+          "pieces": 38,
+          "lines": 2,
+          "score": 200,
+          "finish_reason": "top_out"
+        },
+        {
+          "seed": 50000,
+          "policy": "model",
+          "pieces": 42,
+          "lines": 3,
+          "score": 400,
+          "finish_reason": "top_out"
+        },
+        {
+          "seed": 50001,
+          "policy": "model",
+          "pieces": 43,
+          "lines": 3,
+          "score": 300,
+          "finish_reason": "top_out"
+        },
+        {
+          "seed": 50002,
+          "policy": "model",
+          "pieces": 50,
+          "lines": 8,
+          "score": 800,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50003,
+          "policy": "model",
+          "pieces": 32,
+          "lines": 0,
+          "score": 0,
+          "finish_reason": "top_out"
+        },
+        {
+          "seed": 50004,
+          "policy": "model",
+          "pieces": 37,
+          "lines": 1,
+          "score": 100,
+          "finish_reason": "top_out"
+        }
+      ]
+    },
+    "adapted": {
+      "choices": {
+        "canonical": {
+          "accuracy": 0.9995164410058027,
+          "mean_nll": 0.0007256418058183384,
+          "rows": 2068
+        },
+        "reversed_and_renamed": {
+          "accuracy": 0.9990328820116054,
+          "mean_nll": 0.0017681282934553478,
+          "rows": 2068
+        },
+        "same_actual_choice_fraction": 0.9985493230174082,
+        "by_task": {
+          "tetris_dominance_original": {
+            "correct": 1033,
+            "rows": 1034
+          },
+          "tetris_dominance_model": {
+            "correct": 1034,
+            "rows": 1034
+          }
+        }
+      },
+      "games": {
+        "original": {
+          "games": 5,
+          "reached_piece_limit": 5,
+          "mean_pieces": 50.0,
+          "mean_lines": 12.2,
+          "mean_score": 1600.0,
+          "dominated_moves": 17,
+          "total_moves": 250
+        },
+        "model": {
+          "games": 5,
+          "reached_piece_limit": 5,
+          "mean_pieces": 50.0,
+          "mean_lines": 14.2,
+          "mean_score": 2040.0,
+          "dominated_moves": 17,
+          "total_moves": 250
+        }
+      },
+      "per_game": [
+        {
+          "seed": 50000,
+          "policy": "original",
+          "pieces": 50,
+          "lines": 14,
+          "score": 2200,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50001,
+          "policy": "original",
+          "pieces": 50,
+          "lines": 9,
+          "score": 900,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50002,
+          "policy": "original",
+          "pieces": 50,
+          "lines": 13,
+          "score": 1600,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50003,
+          "policy": "original",
+          "pieces": 50,
+          "lines": 9,
+          "score": 1000,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50004,
+          "policy": "original",
+          "pieces": 50,
+          "lines": 16,
+          "score": 2300,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50000,
+          "policy": "model",
+          "pieces": 50,
+          "lines": 13,
+          "score": 2000,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50001,
+          "policy": "model",
+          "pieces": 50,
+          "lines": 15,
+          "score": 2000,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50002,
+          "policy": "model",
+          "pieces": 50,
+          "lines": 13,
+          "score": 1600,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50003,
+          "policy": "model",
+          "pieces": 50,
+          "lines": 15,
+          "score": 2400,
+          "finish_reason": "piece_limit"
+        },
+        {
+          "seed": 50004,
+          "policy": "model",
+          "pieces": 50,
+          "lines": 15,
+          "score": 2200,
+          "finish_reason": "piece_limit"
+        }
+      ]
+    }
+  }
+}

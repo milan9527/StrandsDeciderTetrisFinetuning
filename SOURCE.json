@@ -1,0 +1,30 @@
+{
+  "source_repository": "https://github.com/milan9527/StrandsDeciderTetris",
+  "source_head": "c64c1acdf7614958690a864a6ba605306cb428cc",
+  "training_source_snapshot_commit": "cb4dff066b6c4b1b550d8ef7daeffda0b56a7b8e",
+  "upstream_commit": "6039cf8b64c6074e75804000c07ac3d4cce795f7",
+  "training_bundle_sha256": "f436c216f94b9e725b7088af4362f300cd05bd724173d26802f1ffcb24253a78",
+  "copied_source_sha256": {
+    "backend/__init__.py": "325ceca3a4bf246ef71b5547ea05f2656d7d4b1bae7fbd4ced984981ff9dde65",
+    "backend/engine.py": "1e99c0645802a1e3bf35f39a9b57ad1e133035b7e67167fd0267ee322d8d598a",
+    "backend/policy.py": "450d70f07e3368eed78f8d566bb34b0ac7ec9a2ecbe7b093f98d07dd847b2b17",
+    "backend/decider.py": "6da3f2710ea2f1c1f603f228b7e9370dbec8260c740939fe84b42cc56b962968",
+    "backend/session.py": "26b7babc0f37987fe2a414d58351135d7ab585eb4e838ac7f65a3e99b75f2a8a",
+    "backend/providers.py": "bc98aa6292b8b8c0b367b545316e1234a882e8f3362bebfa4ba00fdd4a5949bc",
+    "scripts/__init__.py": "40bcaa047f9b790a6f6accd09b629459b3a600143662f907800dde04ad78e384",
+    "scripts/run_live.py": "a4bae666c6bf83e343902bb1123eba91494f6d04034d9226cc1aca4a182011fe",
+    "tests/__init__.py": "a9dbd60fa8ff08ee8650ed56893e0a61c6b317bbd0352af3d3f450514793d650",
+    "tests/test_engine.py": "035c6194b9dbe18034ec892b15232bff564f7a8ac47cdb8ad9479699766cd028",
+    "tests/test_decider.py": "c2d9ab0799917ae6e5def010bf9233a73fca77de3eb6778d46c4046fd8d152ab",
+    "tests/test_policy.py": "794e3395b4c6ca2c2acd7e2e5e0ce23eb772ade3a408ab49157f262183101cc5",
+    "tests/test_finetuning.py": "60a775a7a7990beb722530b6cf603e8a7fa92f1595809f13f52e88ca145323a6",
+    "finetuning/__init__.py": "e83967f87b0b5a9c598207996e942a5b600c958e93ddc4f1ba3d57197c71717b",
+    "finetuning/data.py": "9e4ec161cb96fe4ffeb818093ebec8fd9a74a2ccfb7016652c1c77b4a6335b99",
+    "finetuning/runtime.py": "40fb101fedeb7e4c1f085aa58a4ae6fa8b4dbbcac82a314630ddcc34a3526bfd",
+    "finetuning/train.py": "55c6ec0a8253a292f70f662c8de2ac8a52fdb3d69b92c4ca3174622bb6eca8cd",
+    "finetuning/evaluate.py": "f579466c8b43d389ecbb7955ecbe7f7815b4a5c6289d8ec3743e411c0d35d3e0",
+    "finetuning/cloud_job.py": "03fced9b213638ac2e0032b2a4ea3fe062827bae18b8f3243bed8706916d5451",
+    "finetuning/aws_existing.py": "65354ec1b8279ef0a84372659bba8eece397be589ab6d64124f5897fa4ad220a",
+    "finetuning/summarize.py": "3edca9836d2390c9aba44d4d1f1618e3ddd60e1bcbbd7d015f3ff4fe08e4d90c"
+  }
+}

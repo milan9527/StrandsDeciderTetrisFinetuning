@@ -1,0 +1,1 @@
+"""Standalone game verification commands."""

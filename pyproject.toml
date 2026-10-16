@@ -1,0 +1,27 @@
+[project]
+name = "strands-decider-tetris-finetuning"
+version = "0.1.0"
+description = "Engine-labelled SFT and reproducible game evaluation for Strands Decider."
+requires-python = ">=3.11"
+dependencies = [
+  "boto3>=1.40,<2",
+  "httpx>=0.28,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.12,<1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]

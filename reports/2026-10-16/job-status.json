@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "started_at": 1792146400.3621771,
+  "stages": [
+    {
+      "stage": "gpu-smoke",
+      "exit_code": 0,
+      "seconds": 88.38
+    },
+    {
+      "stage": "train",
+      "exit_code": 0,
+      "seconds": 3842.6
+    },
+    {
+      "stage": "baseline",
+      "exit_code": 0,
+      "seconds": 425.19
+    },
+    {
+      "stage": "adapted",
+      "exit_code": 0,
+      "seconds": 597.55
+    }
+  ],
+  "stage": "adapted",
+  "finished_at": 1792151354.4821591
+}

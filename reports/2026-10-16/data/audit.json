@@ -1,0 +1,90 @@
+{
+  "all_labels_recomputed": true,
+  "no_cross_split_board_or_seed_leakage": true,
+  "splits": {
+    "train": {
+      "rows": 12590,
+      "unique_states": 3148,
+      "option_counts": {
+        "2": 6296,
+        "8": 340,
+        "6": 570,
+        "7": 446,
+        "3": 2126,
+        "10": 238,
+        "4": 1100,
+        "5": 820,
+        "11": 198,
+        "9": 264,
+        "12": 192
+      },
+      "tasks": {
+        "tetris_dominance_original": 6295,
+        "tetris_dominance_model": 6295
+      }
+    },
+    "validation": {
+      "rows": 2120,
+      "unique_states": 530,
+      "option_counts": {
+        "2": 1060,
+        "7": 96,
+        "3": 308,
+        "8": 72,
+        "10": 30,
+        "9": 50,
+        "6": 100,
+        "4": 196,
+        "11": 28,
+        "5": 128,
+        "12": 52
+      },
+      "tasks": {
+        "tetris_dominance_original": 1060,
+        "tetris_dominance_model": 1060
+      }
+    },
+    "calibration": {
+      "rows": 2090,
+      "unique_states": 523,
+      "option_counts": {
+        "2": 1046,
+        "4": 184,
+        "8": 54,
+        "3": 366,
+        "5": 120,
+        "6": 88,
+        "7": 82,
+        "9": 46,
+        "10": 54,
+        "12": 10,
+        "11": 40
+      },
+      "tasks": {
+        "tetris_dominance_original": 1045,
+        "tetris_dominance_model": 1045
+      }
+    },
+    "test": {
+      "rows": 2068,
+      "unique_states": 517,
+      "option_counts": {
+        "2": 1034,
+        "4": 184,
+        "3": 344,
+        "10": 26,
+        "7": 90,
+        "8": 70,
+        "6": 94,
+        "11": 38,
+        "12": 30,
+        "5": 122,
+        "9": 36
+      },
+      "tasks": {
+        "tetris_dominance_original": 1034,
+        "tetris_dominance_model": 1034
+      }
+    }
+  }
+}
