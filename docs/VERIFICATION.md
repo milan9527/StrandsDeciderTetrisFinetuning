@@ -85,3 +85,23 @@ peft 0.21.0、tokenizers 0.23.3、safetensors 0.8.0。
 59 个下载文件、49 个最终清单产物通过散列核验，全部测试指标从逐题预测重新计算。
 原 demo 服务及控制器已恢复，应用启动日志已核对。详见
 [浏览器微调报告](../reports/2026-10-17-browser-finetuning/README.md)。
+
+## 2026-10-17：HTTP 微调服务
+
+新增 HTTP API 和独立 GPU worker，内部复用统一入口。114 项测试及 Ruff 通过，
+其中新增 21 项 HTTP/worker 测试和 2 项进程组回归测试。
+覆盖认证、数据与配置白名单、并发幂等、队列容量、取消、孤儿进程恢复、
+质量失败分类、持久任务和下载边界。
+
+另通过真实本机 HTTP 端口提交 `mode=validate`，重启 API 后任务仍在队列，
+独立 worker 调用实际 CLI 完成 20 条数据的 14/2/2/2 分区和审计；
+状态为 `succeeded` / `data_validated`，下载的产物 SHA-256 与磁盘文件相同。
+
+API Docker 镜像在当前 ARM 主机构建成功，以默认 UID 10001 分别运行 API 和 worker 容器，
+共享持久目录，再次完成实际 HTTP 数据审计、下载和 API 容器重启后的任务查询。
+Docker Compose v2.39.4 配置校验通过。验证进程和容器均已停止并清理。
+
+这些验证不运行模型训练。GPU 镜像要求 Linux x86_64，当前 ARM 主机没有相应原生构建环境；
+GPU 镜像构建及 HTTP 全量 GPU 训练尚未验收。本轮没有调整已有 GPU 或线上服务。
+复现方法见 [HTTP 服务文档](HTTP_API.zh.md)，原始摘要见
+[HTTP 验证报告](../reports/2026-10-17-http-service/README.md)。

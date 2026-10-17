@@ -1,0 +1,15 @@
+{
+  "verified_at": "2026-10-17T09:55:37.579576+00:00",
+  "job_id": "b54756169bfa4ad7bcebdc33fba61077",
+  "transport": "real_loopback_http",
+  "authorization_required": true,
+  "idempotent_submission": true,
+  "api_restart_preserved_queue": true,
+  "worker_ready": true,
+  "status": "succeeded",
+  "pipeline_status": "data_validated",
+  "mode": "validate",
+  "artifact_download_sha256": "3fa6be5de2463e83f7d7581534e885a2cafcd35da230b6e03ee7346171ded9c4",
+  "logs_downloaded": true,
+  "gpu_training_executed": false
+}

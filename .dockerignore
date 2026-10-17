@@ -1,0 +1,14 @@
+*
+!pyproject.toml
+!uv.lock
+!finetune.py
+!backend/
+!backend/**/*.py
+!finetuning/
+!finetuning/**/*.py
+!finetuning/requirements.txt
+!scripts/
+!scripts/**/*.py
+!deploy/
+!deploy/http/
+!deploy/http/Dockerfile

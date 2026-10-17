@@ -1,0 +1,7 @@
+{
+  "storage_dir": "/storage",
+  "pipeline_config": "pipeline.json",
+  "local_data_roots": ["/data"],
+  "s3_data_prefixes": ["s3://YOUR_BUCKET/datasets/"],
+  "max_pending_jobs": 100
+}

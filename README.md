@@ -49,6 +49,16 @@ uv run python finetune.py --data /path/to/choices.jsonl \
 完整流程、重新加载验证和质量门槛通过。四类动作成绩、实际修正案例和模型位置见
 [浏览器微调报告](reports/2026-10-17-browser-finetuning/README.md)；本轮没有执行真实浏览器操作。
 
+## HTTP 微调服务
+
+可通过 HTTP 提交同一个微调流程，后台 GPU worker 按队列串行执行。
+支持 bearer token、幂等提交、任务查询、增量日志、取消和产物下载；
+任务记录持久保存在 SQLite，API 重启不停止独立 worker 中的训练。
+
+提供单机 Docker Compose 部署，模型和数据位置由使用者在自己的 AWS 环境配置。
+当前适用于一个受信任团队共享一台 GPU。见 [HTTP 接口与部署说明](docs/HTTP_API.zh.md)
+和 [服务配置示例](examples/http-service.json)。
+
 ## 已完成的首轮实验
 
 2026-10-16，在现有 NVIDIA L4 实例训练 12,590 条样本、1 epoch、787 步。

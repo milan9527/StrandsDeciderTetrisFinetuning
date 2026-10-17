@@ -197,9 +197,10 @@ class Runner:
         with log.open("a") as stream:
             stream.write(json.dumps({"command": list(map(str, command))}) + "\n")
             stream.flush()
+            managed_group = os.environ.get("DECIDER_MANAGED_PROCESS_GROUP") == "1"
             process = subprocess.Popen(
                 list(map(str, command)), cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT,
-                start_new_session=True, env={**os.environ, "PYTHONUNBUFFERED": "1",
+                start_new_session=not managed_group, env={**os.environ, "PYTHONUNBUFFERED": "1",
                                              "TOKENIZERS_PARALLELISM": "false"},
             )
             try:
@@ -217,11 +218,17 @@ class Runner:
                                           "log": str(log)}), flush=True)
             finally:
                 if process.poll() is None:
-                    os.killpg(process.pid, signal.SIGTERM)
+                    if managed_group:
+                        process.terminate()
+                    else:
+                        os.killpg(process.pid, signal.SIGTERM)
                     try:
                         process.wait(timeout=20)
                     except subprocess.TimeoutExpired:
-                        os.killpg(process.pid, signal.SIGKILL)
+                        if managed_group:
+                            process.kill()
+                        else:
+                            os.killpg(process.pid, signal.SIGKILL)
                         process.wait()
 
 

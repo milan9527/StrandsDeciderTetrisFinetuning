@@ -1,0 +1,12 @@
+{
+  "image": "decider-finetune-api:http-v1",
+  "image_id": "sha256:fe1388171f5dc08f6abf836b1d7806d4a29370dc64a5b55cd2daab5a40a6255a",
+  "architecture": "arm64",
+  "default_uid": "10001",
+  "separate_containers": true,
+  "status": "succeeded",
+  "pipeline_status": "data_validated",
+  "artifact_sha256": "3fa6be5de2463e83f7d7581534e885a2cafcd35da230b6e03ee7346171ded9c4",
+  "api_container_restart_preserved_job": true,
+  "gpu_training_executed": false
+}

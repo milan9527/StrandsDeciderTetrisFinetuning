@@ -4,6 +4,7 @@ import copy
 import csv
 import gzip
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -262,6 +263,19 @@ def test_subprocess_exit_is_reported_with_log(tmp_path):
     with pytest.raises(RuntimeError, match="exited 7; see"):
         runner.command("intentional-failure", [sys.executable, "-c", "print('diagnostic'); exit(7)"])
     assert "diagnostic" in (tmp_path / "logs/intentional-failure.log").read_text()
+
+
+@pytest.mark.parametrize("managed", [False, True])
+def test_http_stages_share_the_cancellable_job_process_group(tmp_path, monkeypatch, managed):
+    monkeypatch.setenv("DECIDER_MANAGED_PROCESS_GROUP", "1" if managed else "0")
+    runner = pipeline.Runner(tmp_path, pipeline.configure(), False, False)
+    result = tmp_path / "process-group.txt"
+    runner.command("process-group", [
+        sys.executable, "-c",
+        "import os,pathlib,sys; pathlib.Path(sys.argv[1]).write_text(str(os.getpgrp()))",
+        str(result),
+    ])
+    assert (int(result.read_text()) == os.getpgrp()) is managed
 
 
 def reports(folder, before=0.8, after=0.7):
