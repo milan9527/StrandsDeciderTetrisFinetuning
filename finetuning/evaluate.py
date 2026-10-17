@@ -22,20 +22,31 @@ from finetuning.runtime import (
 from scripts.run_live import verify_export
 
 
-def choice_report(model, rows, device, batch_size):
+def choice_report(model, rows, device, batch_size, predictions_path=None):
     result = predict(model, rows, device, batch_size)
     reversed_rows = [permute_row(r, list(reversed(range(len(r["options"])))), rename=True)
                      for r in rows]
     swapped = predict(model, reversed_rows, device, batch_size)
     by_task = defaultdict(lambda: {"correct": 0, "rows": 0})
     same = 0
-    for row, first, second in zip(
+    records = []
+    for number, (row, first, second) in enumerate(zip(
         rows, result["predictions"], swapped["predictions"], strict=True
-    ):
+    )):
         stats = by_task[row["task"]]
         stats["rows"] += 1
         stats["correct"] += first == row["label"]
         same += first == len(row["options"]) - 1 - second
+        records.append({
+            "row": number, "task": row["task"], "gold_index": row["label"],
+            "predicted_index": first,
+            "reversed_predicted_original_index": len(row["options"]) - 1 - second,
+            "correct": first == row["label"],
+        })
+    if predictions_path is not None:
+        with gzip.open(predictions_path, "wt", encoding="utf-8") as stream:
+            for record in records:
+                stream.write(json.dumps(record, ensure_ascii=False) + "\n")
     result.pop("predictions")
     swapped.pop("predictions")
     return {"canonical": result, "reversed_and_renamed": swapped,
@@ -153,7 +164,9 @@ def run(args):
         report["calibration"] = calibrate(model, calibration_rows, args.device, args.batch_size, scope)
         # Never mutate the trained/baseline checkpoint during evaluation.
         model.save_pretrained(str(args.output / "calibrated"))
-    report["heldout_choices"] = choice_report(model, test, args.device, args.batch_size)
+    report["heldout_choices"] = choice_report(
+        model, test, args.device, args.batch_size, args.output / "predictions.jsonl.gz"
+    )
     probe_rows = test[:min(16, len(test))]
     report["reload_probe"] = predict(model, probe_rows, args.device, args.batch_size)
     (args.output / "report.json").write_text(json.dumps(report, indent=2) + "\n")

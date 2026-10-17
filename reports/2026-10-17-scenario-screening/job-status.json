@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/usr/local/bin/python",
+    "-m",
+    "finetuning.screen",
+    "--data",
+    "/var/cache/decider/scenario-screen-20261017-005010/dataset/choices",
+    "--upstream",
+    "/var/cache/decider/scenario-screen-20261017-005010/upstream",
+    "--checkpoint",
+    "/opt/models/decider",
+    "--base-model",
+    "/opt/models/base",
+    "--output",
+    "/var/cache/decider/scenario-screen-20261017-005010/result/screen",
+    "--batch-size",
+    "2"
+  ],
+  "started_at": 1792198278.732739,
+  "run_kind": "gpu_baseline_screening",
+  "exit_code": 0,
+  "finished_at": 1792198507.7638497
+}

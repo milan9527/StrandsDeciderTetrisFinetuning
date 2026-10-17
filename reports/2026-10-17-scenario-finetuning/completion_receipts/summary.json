@@ -1,0 +1,70 @@
+{
+  "run_kind": "sft",
+  "pipeline_verified": false,
+  "quality_passed": null,
+  "quality_metrics_passed": true,
+  "quality_gates": {
+    "minimum_accuracy": true,
+    "no_excess_accuracy_regression": true,
+    "minimum_order_consistency": true
+  },
+  "thresholds": {
+    "min_accuracy": 0.8,
+    "max_accuracy_drop": 0.0,
+    "min_order_consistency": 0.9
+  },
+  "baseline": {
+    "canonical": {
+      "accuracy": 0.43,
+      "mean_nll": 1.0403164419531823,
+      "rows": 200
+    },
+    "reversed_and_renamed": {
+      "accuracy": 0.475,
+      "mean_nll": 0.9978445881605148,
+      "rows": 200
+    },
+    "same_actual_choice_fraction": 0.705,
+    "by_task": {
+      "completion_receipts": {
+        "correct": 86,
+        "rows": 200
+      }
+    }
+  },
+  "adapted": {
+    "canonical": {
+      "accuracy": 0.925,
+      "mean_nll": 0.1408521180448588,
+      "rows": 200
+    },
+    "reversed_and_renamed": {
+      "accuracy": 0.935,
+      "mean_nll": 0.13833888598310295,
+      "rows": 200
+    },
+    "same_actual_choice_fraction": 0.98,
+    "by_task": {
+      "completion_receipts": {
+        "correct": 185,
+        "rows": 200
+      }
+    }
+  },
+  "accuracy_delta": 0.49500000000000005,
+  "training_steps": 100,
+  "training_rows": 1600,
+  "calibration": {
+    "method": "choice_temperature_grid_minimum_nll",
+    "scope": "user_labelled_choice_dataset_only",
+    "split": "calibration",
+    "rows": 200,
+    "temperature": 1.4125375747680664,
+    "calibration_nll": 0.12918153358303244
+  },
+  "checkpoint": "eval-v1/adapted/calibrated",
+  "checkpoint_reloaded": true,
+  "failed_stage": "reload",
+  "failure": "Probe NLL difference exceeds unchanged 1% relative / 1e-4 absolute tolerance",
+  "summary_origin": "Archived measurements; pipeline did not produce a final report"
+}

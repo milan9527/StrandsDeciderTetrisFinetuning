@@ -217,6 +217,7 @@ run/
   run-v1/last/                # 最后一步检查点
   run-v1/run.json             # 参数、梯度、权重变化和验证曲线记录
   eval-v1/baseline/           # 原版测试报告
+  eval-v1/*/predictions.jsonl.gz # 原版和微调版逐题选择，可回查错误类型
   eval-v1/adapted/calibrated/ # 最终校准后的检查点
   verification/report.json   # 另一个进程重新加载后的推理核对
   REPORT.md                  # 可阅读的对比结果
@@ -228,6 +229,8 @@ run/
 完整流程检查 LoRA/head 确实被更新，拒绝输入截断；原版与新版使用同一 test；
 评估原始顺序、反序并改名后的准确率和实际选项一致率；单独使用 calibration 拟合温度。
 校准后的 checkpoint 会在另一个进程重新加载，对最多 16 条测试样本核对预测及 NLL。
+逐题记录中的 `row` 对应 `data/test.jsonl` 的零起算行号；
+`reversed_predicted_original_index` 已映射回该行原始选项顺序，可与 `predicted_index` 直接比较。
 最后核验产物文件散列。准确率针对所提供的业务数据分布，不能推断所有任务的泛化能力。
 
 | 退出码/状态 | 含义 |

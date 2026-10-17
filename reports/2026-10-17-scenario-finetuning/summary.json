@@ -1,0 +1,48 @@
+{
+  "run_kind": "two_independent_scenario_sft_experiments",
+  "interface": "finetune.py",
+  "instance": "i-0daca64f56056aa1c",
+  "gpu": "NVIDIA L4",
+  "all_acceptance_passed": false,
+  "service_restored": true,
+  "tests_passed": 91,
+  "tasks": {
+    "completion_receipts": {
+      "training_rows": 1600,
+      "optimizer_steps": 100,
+      "test_rows": 200,
+      "baseline_accuracy": 0.43,
+      "adapted_accuracy": 0.925,
+      "pipeline_verified": false,
+      "quality_passed": null,
+      "negative_examples": 133,
+      "baseline_false_positive_count": 77,
+      "adapted_false_positive_count": 0,
+      "paired_outcomes": {
+        "both_correct": 86,
+        "corrected": 99,
+        "both_wrong": 15
+      },
+      "local_checkpoint": "/home/ec2-user/ai/StrandsDeciderTetrisFinetuning/artifacts/scenario-finetuning/retrieval_answerability/download/completion-resumed/eval-v1/adapted/calibrated"
+    },
+    "retrieval_answerability": {
+      "training_rows": 1600,
+      "optimizer_steps": 100,
+      "test_rows": 200,
+      "baseline_accuracy": 0.54,
+      "adapted_accuracy": 0.78,
+      "pipeline_verified": true,
+      "quality_passed": false,
+      "negative_examples": 100,
+      "baseline_false_positive_count": 92,
+      "adapted_false_positive_count": 34,
+      "paired_outcomes": {
+        "corrected": 58,
+        "both_correct": 98,
+        "both_wrong": 34,
+        "regressed": 10
+      },
+      "local_checkpoint": "/home/ec2-user/ai/StrandsDeciderTetrisFinetuning/artifacts/scenario-finetuning/retrieval_answerability/download/pipeline/eval-v1/adapted/calibrated"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "completion_receipts": {
+    "confusion": [
+      {
+        "gold": "contradicted",
+        "predicted": "contradicted",
+        "rows": 1
+      },
+      {
+        "gold": "contradicted",
+        "predicted": "unknown",
+        "rows": 30
+      },
+      {
+        "gold": "contradicted",
+        "predicted": "verified",
+        "rows": 22
+      },
+      {
+        "gold": "unknown",
+        "predicted": "unknown",
+        "rows": 9
+      },
+      {
+        "gold": "unknown",
+        "predicted": "verified",
+        "rows": 44
+      },
+      {
+        "gold": "verified",
+        "predicted": "unknown",
+        "rows": 2
+      },
+      {
+        "gold": "verified",
+        "predicted": "verified",
+        "rows": 52
+      }
+    ],
+    "unverified_rows": 106,
+    "false_completion_rows": 66,
+    "false_completion_rate": 0.6226415094339622
+  },
+  "model_routing": {
+    "infeasible_model_selected": 84,
+    "constraint_violations": {
+      "unavailable": 1,
+      "wrong_modality": 8,
+      "context_too_small": 28,
+      "quality_below_minimum": 40,
+      "latency_exceeded": 24,
+      "budget_exceeded": 10
+    },
+    "feasible_but_not_lowest_cost": 15,
+    "unnecessary_defer": 12
+  },
+  "retrieval_answerability": {
+    "unanswerable_rows": 80,
+    "correctly_rejected": 11,
+    "false_answer_present": 69
+  }
+}

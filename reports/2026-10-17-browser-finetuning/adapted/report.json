@@ -1,0 +1,84 @@
+{
+  "checkpoint": "/var/cache/decider/browser-sft-20261017-020045/result/pipeline/run-v1/best",
+  "data_manifest": {
+    "schema": "decider_choice_v1",
+    "label_source": "user_supplied",
+    "split_seed": 17,
+    "requested_fractions": [
+      0.7,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "split_strategy": "provided_splits_checked_for_leakage",
+    "splits": {
+      "train": {
+        "rows": 1600,
+        "sha256": "60893cfbc332f364585da5d0ea43e46c58dbe9e04bc8df602f63677ee87254fb"
+      },
+      "validation": {
+        "rows": 200,
+        "sha256": "55604dd435f41ef2149e385877afa6d871da7c13e6c68f33b90dfeee793312fe"
+      },
+      "calibration": {
+        "rows": 200,
+        "sha256": "07de2d8988e6c66e103b85d6a271b32a7f84a4deebf55c4c455828c06c655575"
+      },
+      "test": {
+        "rows": 200,
+        "sha256": "33852fe62384a9ffcf2d76a0d55243945cb94fb815f29d000e228e5758f8e02a"
+      }
+    }
+  },
+  "evaluation_kind": "full_test",
+  "calibration": {
+    "method": "choice_temperature_grid_minimum_nll",
+    "scope": "user_labelled_choice_dataset_only",
+    "split": "calibration",
+    "rows": 200,
+    "temperature": 2.1134891510009766,
+    "calibration_nll": 0.022176355779702134
+  },
+  "heldout_choices": {
+    "canonical": {
+      "accuracy": 1.0,
+      "mean_nll": 0.0052254697034368296,
+      "rows": 200
+    },
+    "reversed_and_renamed": {
+      "accuracy": 1.0,
+      "mean_nll": 0.00215883757249685,
+      "rows": 200
+    },
+    "same_actual_choice_fraction": 1.0,
+    "by_task": {
+      "browser_controls": {
+        "correct": 200,
+        "rows": 200
+      }
+    }
+  },
+  "reload_probe": {
+    "accuracy": 1.0,
+    "mean_nll": 0.0034290878611500375,
+    "predictions": [
+      7,
+      6,
+      7,
+      2,
+      10,
+      10,
+      8,
+      7,
+      3,
+      8,
+      3,
+      0,
+      5,
+      2,
+      2,
+      7
+    ],
+    "rows": 16
+  }
+}

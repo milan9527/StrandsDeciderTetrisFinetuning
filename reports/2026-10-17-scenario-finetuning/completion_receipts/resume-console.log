@@ -1,0 +1,23 @@
+{"stage": "data", "status": "verified_existing"}
+{"stage": "preflight", "status": "verified_existing"}
+{"stage": "train", "status": "verified_existing"}
+{"stage": "baseline", "status": "verified_existing"}
+{"stage": "adapted", "status": "verified_existing"}
+{"stage": "reload", "status": "running"}
+Traceback (most recent call last):
+  File "/var/cache/decider/completion-sft-20261017-010911/finetune.py", line 9, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/pipeline.py", line 458, in main
+    return execute(runner, args.validate_only)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/pipeline.py", line 395, in execute
+    runner.stage("reload", ["verification"], lambda: runner.command(
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/pipeline.py", line 181, in stage
+    function()
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/pipeline.py", line 395, in <lambda>
+    runner.stage("reload", ["verification"], lambda: runner.command(
+                                                     ^^^^^^^^^^^^^^^
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/pipeline.py", line 213, in command
+    raise RuntimeError(f"{name} exited {code}; see {log}")
+RuntimeError: reload exited 1; see /var/cache/decider/completion-sft-20261017-010911/result/pipeline/logs/reload.log

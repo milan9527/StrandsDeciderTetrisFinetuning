@@ -1,0 +1,69 @@
+{
+  "run_kind": "sft",
+  "pipeline_verified": true,
+  "quality_passed": true,
+  "quality_gates": {
+    "minimum_accuracy": true,
+    "no_excess_accuracy_regression": true,
+    "minimum_order_consistency": true
+  },
+  "thresholds": {
+    "min_accuracy": 0.8,
+    "max_accuracy_drop": 0.0,
+    "min_order_consistency": 0.85
+  },
+  "accuracy_delta": 0.0050000000000000044,
+  "baseline": {
+    "canonical": {
+      "accuracy": 0.905,
+      "mean_nll": 0.2378437160514295,
+      "rows": 200
+    },
+    "reversed_and_renamed": {
+      "accuracy": 0.9,
+      "mean_nll": 0.2440614941716194,
+      "rows": 200
+    },
+    "same_actual_choice_fraction": 0.985,
+    "by_task": {
+      "ag_news": {
+        "correct": 181,
+        "rows": 200
+      }
+    }
+  },
+  "adapted": {
+    "canonical": {
+      "accuracy": 0.91,
+      "mean_nll": 0.22605454843491316,
+      "rows": 200
+    },
+    "reversed_and_renamed": {
+      "accuracy": 0.925,
+      "mean_nll": 0.23364271349273621,
+      "rows": 200
+    },
+    "same_actual_choice_fraction": 0.965,
+    "by_task": {
+      "ag_news": {
+        "correct": 182,
+        "rows": 200
+      }
+    }
+  },
+  "training_steps": 100,
+  "training_rows": 1600,
+  "calibration": {
+    "method": "choice_temperature_grid_minimum_nll",
+    "scope": "user_labelled_choice_dataset_only",
+    "split": "calibration",
+    "rows": 200,
+    "temperature": 1.4125375747680664,
+    "calibration_nll": 0.33578815556829794
+  },
+  "checkpoint_reloaded": true,
+  "checkpoint": "eval-v1/adapted/calibrated",
+  "label_source": "user_supplied",
+  "games": {},
+  "scope": "held_out_choice_data_and_optional_tetris_games"
+}

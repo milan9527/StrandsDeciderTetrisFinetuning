@@ -1,0 +1,341 @@
+{
+  "run_kind": "baseline_discovery_screening",
+  "environment": {
+    "packages": {
+      "torch": "2.7.1+cu126",
+      "transformers": "5.17.0",
+      "peft": "0.21.0",
+      "tokenizers": "0.23.2"
+    },
+    "gpu": "NVIDIA L4",
+    "free_bytes": 23455662080,
+    "total_bytes": 23659151360
+  },
+  "source": {
+    "source": "/opt/models/decider",
+    "copied_weights": {
+      "head.safetensors": "daad0727152b6185447cee36f78230c144312feb7b19f02749b19645238b5287",
+      "lora/adapter_model.safetensors": "701bdb895887097f7954ec7eb06f7937d3b790035b5462195eb26abd80a4aebc"
+    }
+  },
+  "weights_unchanged": true,
+  "weight_sha256": {
+    "head": "b4ea9cbb164c7e9dfb91bfb6fbb65ad68999317b976be852c5f59acd106b2015",
+    "lora": "da7b081717b1beb5e1d9a8e6ff773ed2efdb5d259a99af095a08fabb49cd3751"
+  },
+  "tasks": {
+    "completion_receipts": {
+      "partition": "discovery",
+      "rows": 160,
+      "max_tokens": 1533,
+      "canonical": {
+        "accuracy": 0.3875,
+        "mean_nll": 1.0491798661649228,
+        "rows": 160
+      },
+      "reversed_and_renamed": {
+        "accuracy": 0.475,
+        "mean_nll": 1.019125510752201,
+        "rows": 160
+      },
+      "correct": 62,
+      "accuracy_wilson_95": [
+        0.31549219195675016,
+        0.4647833912895072
+      ],
+      "same_actual_choice_fraction": 0.79375,
+      "mean_uniform_random_accuracy": 0.333333333333334,
+      "macro_accuracy": 0.38388073608199397,
+      "by_label_family": {
+        "verified": {
+          "rows": 54,
+          "correct": 52
+        },
+        "contradicted": {
+          "rows": 53,
+          "correct": 1
+        },
+        "unknown": {
+          "rows": 53,
+          "correct": 9
+        }
+      },
+      "wall_seconds": 80.1,
+      "label_source": "deterministic_synthetic_policy",
+      "reference_scenarios": [
+        3,
+        4
+      ],
+      "candidate_for_finetuning": true,
+      "order_instability": true,
+      "majority_label_accuracy": 0.3375
+    },
+    "model_routing": {
+      "partition": "discovery",
+      "rows": 160,
+      "max_tokens": 1116,
+      "canonical": {
+        "accuracy": 0.30625,
+        "mean_nll": 1.6656404584646225,
+        "rows": 160
+      },
+      "reversed_and_renamed": {
+        "accuracy": 0.25,
+        "mean_nll": 1.7062266245484352,
+        "rows": 160
+      },
+      "correct": 49,
+      "accuracy_wilson_95": [
+        0.24006651044279392,
+        0.3815192162590937
+      ],
+      "same_actual_choice_fraction": 0.46875,
+      "mean_uniform_random_accuracy": 0.1428571428571426,
+      "macro_accuracy": 0.30859375,
+      "by_label_family": {
+        "defer": {
+          "rows": 32,
+          "correct": 10
+        },
+        "route_to_model": {
+          "rows": 128,
+          "correct": 39
+        }
+      },
+      "wall_seconds": 53.62,
+      "label_source": "deterministic_synthetic_policy",
+      "reference_scenarios": [
+        19
+      ],
+      "candidate_for_finetuning": true,
+      "order_instability": true
+    },
+    "browser_controls": {
+      "partition": "discovery",
+      "rows": 160,
+      "max_tokens": 1021,
+      "canonical": {
+        "accuracy": 0.525,
+        "mean_nll": 2.126045586541295,
+        "rows": 160
+      },
+      "reversed_and_renamed": {
+        "accuracy": 0.4625,
+        "mean_nll": 2.1223976319655775,
+        "rows": 160
+      },
+      "correct": 84,
+      "accuracy_wilson_95": [
+        0.4479452137471758,
+        0.6008824344203225
+      ],
+      "same_actual_choice_fraction": 0.7625,
+      "mean_uniform_random_accuracy": 0.09090909090909124,
+      "macro_accuracy": 0.24479166666666666,
+      "by_label_family": {
+        "click_control": {
+          "rows": 96,
+          "correct": 82
+        },
+        "refresh": {
+          "rows": 32,
+          "correct": 0
+        },
+        "wait": {
+          "rows": 16,
+          "correct": 0
+        },
+        "blocked": {
+          "rows": 16,
+          "correct": 2
+        }
+      },
+      "wall_seconds": 47.8,
+      "label_source": "deterministic_synthetic_policy",
+      "reference_scenarios": [
+        27
+      ],
+      "candidate_for_finetuning": true,
+      "order_instability": true
+    },
+    "claim_support_ocnli": {
+      "partition": "discovery",
+      "rows": 150,
+      "max_tokens": 184,
+      "canonical": {
+        "accuracy": 0.6,
+        "mean_nll": 0.8969039871295293,
+        "rows": 150
+      },
+      "reversed_and_renamed": {
+        "accuracy": 0.6,
+        "mean_nll": 0.8632897430658341,
+        "rows": 150
+      },
+      "correct": 90,
+      "accuracy_wilson_95": [
+        0.5200476798506317,
+        0.6749580923202245
+      ],
+      "same_actual_choice_fraction": 0.94,
+      "mean_uniform_random_accuracy": 0.33333333333333387,
+      "macro_accuracy": 0.6,
+      "by_label_family": {
+        "contradiction": {
+          "rows": 50,
+          "correct": 36
+        },
+        "entailment": {
+          "rows": 50,
+          "correct": 33
+        },
+        "neutral": {
+          "rows": 50,
+          "correct": 21
+        }
+      },
+      "wall_seconds": 9.88,
+      "label_source": "original_public_dataset_labels",
+      "reference_scenarios": [
+        52
+      ],
+      "candidate_for_finetuning": true,
+      "order_instability": false,
+      "majority_label_accuracy": 0.3333333333333333
+    },
+    "support_routing_banking": {
+      "partition": "discovery",
+      "rows": 120,
+      "max_tokens": 380,
+      "canonical": {
+        "accuracy": 0.925,
+        "mean_nll": 0.3744269810984406,
+        "rows": 120
+      },
+      "reversed_and_renamed": {
+        "accuracy": 0.9166666666666666,
+        "mean_nll": 0.3638294847069725,
+        "rows": 120
+      },
+      "correct": 111,
+      "accuracy_wilson_95": [
+        0.8635894316089088,
+        0.9600433379935513
+      ],
+      "same_actual_choice_fraction": 0.9416666666666667,
+      "mean_uniform_random_accuracy": 0.08333333333333334,
+      "macro_accuracy": 0.9249999999999999,
+      "by_label_family": {
+        "Refund_not_showing_up": {
+          "rows": 10,
+          "correct": 9
+        },
+        "extra_charge_on_statement": {
+          "rows": 10,
+          "correct": 9
+        },
+        "request_refund": {
+          "rows": 10,
+          "correct": 9
+        },
+        "reverted_card_payment?": {
+          "rows": 10,
+          "correct": 10
+        },
+        "card_not_working": {
+          "rows": 10,
+          "correct": 8
+        },
+        "transaction_charged_twice": {
+          "rows": 10,
+          "correct": 10
+        },
+        "pending_card_payment": {
+          "rows": 10,
+          "correct": 10
+        },
+        "card_payment_fee_charged": {
+          "rows": 10,
+          "correct": 7
+        },
+        "balance_not_updated_after_bank_transfer": {
+          "rows": 10,
+          "correct": 10
+        },
+        "card_payment_wrong_exchange_rate": {
+          "rows": 10,
+          "correct": 9
+        },
+        "declined_card_payment": {
+          "rows": 10,
+          "correct": 10
+        },
+        "card_payment_not_recognised": {
+          "rows": 10,
+          "correct": 10
+        }
+      },
+      "wall_seconds": 10.91,
+      "label_source": "original_public_dataset_labels",
+      "reference_scenarios": [
+        40
+      ],
+      "candidate_for_finetuning": false,
+      "order_instability": false,
+      "majority_label_accuracy": 0.08333333333333333
+    },
+    "retrieval_answerability": {
+      "partition": "discovery",
+      "rows": 160,
+      "max_tokens": 572,
+      "canonical": {
+        "accuracy": 0.56875,
+        "mean_nll": 0.8812469667755067,
+        "rows": 160
+      },
+      "reversed_and_renamed": {
+        "accuracy": 0.5625,
+        "mean_nll": 0.8203797133639454,
+        "rows": 160
+      },
+      "correct": 91,
+      "accuracy_wilson_95": [
+        0.4912859643792512,
+        0.6429900680813693
+      ],
+      "same_actual_choice_fraction": 0.98125,
+      "mean_uniform_random_accuracy": 0.5,
+      "macro_accuracy": 0.56875,
+      "by_label_family": {
+        "present": {
+          "rows": 80,
+          "correct": 80
+        },
+        "missing": {
+          "rows": 80,
+          "correct": 11
+        }
+      },
+      "wall_seconds": 14.52,
+      "label_source": "original_public_dataset_labels",
+      "reference_scenarios": [
+        58
+      ],
+      "candidate_for_finetuning": true,
+      "order_instability": false,
+      "majority_label_accuracy": 0.5
+    }
+  },
+  "candidate_threshold": "discovery canonical accuracy < 0.80",
+  "selection_uses_final_test": false,
+  "finetuning_performed": false,
+  "wall_seconds": 217.85,
+  "reference": "https://github.com/wuyoscar/jev-skill/blob/7696a76bf3cada4e9518db4a7a3b2202fe76e1e5/README.zh.md",
+  "limitations": [
+    "Synthetic cases test these explicit policies, not live browser or agent performance.",
+    "BANKING77 is a 12-queue subset, not the full 77-intent benchmark.",
+    "OCNLI final test is sampled from public official dev; no-consensus labels are excluded.",
+    "SQuAD uses 100..2200-character passages and article-level partition isolation.",
+    "Public-data pretraining overlap and near-duplicate semantics cannot be excluded."
+  ]
+}

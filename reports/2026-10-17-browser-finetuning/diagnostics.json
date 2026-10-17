@@ -1,0 +1,598 @@
+{
+  "partition": "test",
+  "models": {
+    "baseline": {
+      "rows": 200,
+      "correct": 106,
+      "accuracy": 0.53,
+      "by_action_family": {
+        "click_control": {
+          "rows": 120,
+          "correct": 103
+        },
+        "refresh": {
+          "rows": 40,
+          "correct": 0
+        },
+        "wait": {
+          "rows": 20,
+          "correct": 0
+        },
+        "blocked": {
+          "rows": 20,
+          "correct": 3
+        }
+      },
+      "action_family_confusion": {
+        "click_control": {
+          "click_control": 120
+        },
+        "refresh": {
+          "blocked": 7,
+          "click_control": 33
+        },
+        "wait": {
+          "blocked": 4,
+          "click_control": 16
+        },
+        "blocked": {
+          "click_control": 17,
+          "blocked": 3
+        }
+      },
+      "macro_action_family_accuracy": 0.2520833333333333,
+      "click_on_nonclick_gold_rows": 66,
+      "nonclick_gold_rows": 80,
+      "clicks_violating_any_rule": 83,
+      "violations_by_rule_overlapping": {
+        "stale_observation": 33,
+        "wrong_order_id": 16,
+        "wrong_language": 58,
+        "wrong_document_type": 33,
+        "page_loading": 16,
+        "non_view_action": 15,
+        "wrong_panel": 36,
+        "disabled_control": 3
+      },
+      "reversed_correct": 99,
+      "same_actual_choice_count": 147
+    },
+    "adapted": {
+      "rows": 200,
+      "correct": 200,
+      "accuracy": 1.0,
+      "by_action_family": {
+        "click_control": {
+          "rows": 120,
+          "correct": 120
+        },
+        "refresh": {
+          "rows": 40,
+          "correct": 40
+        },
+        "wait": {
+          "rows": 20,
+          "correct": 20
+        },
+        "blocked": {
+          "rows": 20,
+          "correct": 20
+        }
+      },
+      "action_family_confusion": {
+        "click_control": {
+          "click_control": 120
+        },
+        "refresh": {
+          "refresh": 40
+        },
+        "wait": {
+          "wait": 20
+        },
+        "blocked": {
+          "blocked": 20
+        }
+      },
+      "macro_action_family_accuracy": 1.0,
+      "click_on_nonclick_gold_rows": 0,
+      "nonclick_gold_rows": 80,
+      "clicks_violating_any_rule": 0,
+      "violations_by_rule_overlapping": {},
+      "reversed_correct": 200,
+      "same_actual_choice_count": 200
+    }
+  },
+  "paired_outcomes": {
+    "both_correct": 106,
+    "corrected": 94
+  },
+  "no_live_browser_actions": true,
+  "example_selection": "first three in original test order per non-both-correct category",
+  "examples": {
+    "corrected": [
+      {
+        "kind": "choice",
+        "task": "browser_controls",
+        "state": {
+          "request": {
+            "order_id": "order-1747",
+            "document_type": "invoice",
+            "language": "de"
+          },
+          "active_panel": "preview",
+          "current_revision": 4645,
+          "observed_revision": 4644,
+          "loading": false,
+          "controls": [
+            {
+              "id": "e604",
+              "order_id": "order-1747",
+              "document_type": "receipt",
+              "language": "fr",
+              "visible": true,
+              "enabled": false,
+              "panel": "history",
+              "action": "view"
+            },
+            {
+              "id": "e336",
+              "order_id": "order-6709",
+              "document_type": "shipping_label",
+              "language": "fr",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "view"
+            },
+            {
+              "id": "e129",
+              "order_id": "order-1747",
+              "document_type": "invoice",
+              "language": "en",
+              "visible": false,
+              "enabled": true,
+              "panel": "history",
+              "action": "view"
+            },
+            {
+              "id": "e321",
+              "order_id": "order-1747",
+              "document_type": "receipt",
+              "language": "fr",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "view"
+            },
+            {
+              "id": "e558",
+              "order_id": "order-1747",
+              "document_type": "invoice",
+              "language": "en",
+              "visible": true,
+              "enabled": false,
+              "panel": "orders",
+              "action": "pay"
+            },
+            {
+              "id": "e488",
+              "order_id": "order-9434",
+              "document_type": "shipping_label",
+              "language": "de",
+              "visible": false,
+              "enabled": true,
+              "panel": "preview",
+              "action": "pay"
+            },
+            {
+              "id": "e179",
+              "order_id": "order-1747",
+              "document_type": "shipping_label",
+              "language": "en",
+              "visible": true,
+              "enabled": true,
+              "panel": "history",
+              "action": "pay"
+            },
+            {
+              "id": "e554",
+              "order_id": "order-1747",
+              "document_type": "receipt",
+              "language": "fr",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "view"
+            }
+          ]
+        },
+        "instructions": "Choose one next read-only action. First refresh if observed_revision differs from current_revision. Otherwise wait if loading is true. Otherwise click the unique visible, enabled view control in active_panel matching the requested order_id, document_type, and language. Ignore hidden, disabled, other-panel, wrong-document and payment controls. Choose blocked if no matching control exists.",
+        "options": [
+          [
+            "c7414",
+            "Click observed control e321."
+          ],
+          [
+            "c6065",
+            "Click observed control e129."
+          ],
+          [
+            "c8583",
+            "Click observed control e604."
+          ],
+          [
+            "c6794",
+            "No allowed matching view control is present."
+          ],
+          [
+            "c5559",
+            "Click observed control e179."
+          ],
+          [
+            "c9692",
+            "Click observed control e488."
+          ],
+          [
+            "c289",
+            "Click observed control e336."
+          ],
+          [
+            "c6298",
+            "Click observed control e554."
+          ],
+          [
+            "c9382",
+            "Refresh the stale page observation."
+          ],
+          [
+            "c768",
+            "Wait for the page to finish loading."
+          ],
+          [
+            "c9967",
+            "Click observed control e558."
+          ]
+        ],
+        "label": 8,
+        "group_id": "browser_controls:9058c90c973b71892aaa463a344a76e0f672a773e4a57b325c74ce2722f8198d",
+        "_source": {
+          "dataset": "generated_policy_cases",
+          "partition_seed": 20264033,
+          "case": 6,
+          "oracle": "browser_controls",
+          "gold": "refresh"
+        },
+        "row": 6,
+        "gold_action": "refresh",
+        "baseline_action": "blocked",
+        "adapted_action": "refresh",
+        "category": "corrected",
+        "baseline_violations": [],
+        "adapted_violations": []
+      },
+      {
+        "kind": "choice",
+        "task": "browser_controls",
+        "state": {
+          "request": {
+            "order_id": "order-2345",
+            "document_type": "invoice",
+            "language": "de"
+          },
+          "active_panel": "orders",
+          "current_revision": 2715,
+          "observed_revision": 2714,
+          "loading": false,
+          "controls": [
+            {
+              "id": "e126",
+              "order_id": "order-5035",
+              "document_type": "invoice",
+              "language": "de",
+              "visible": false,
+              "enabled": false,
+              "panel": "preview",
+              "action": "view"
+            },
+            {
+              "id": "e864",
+              "order_id": "order-6128",
+              "document_type": "invoice",
+              "language": "fr",
+              "visible": false,
+              "enabled": true,
+              "panel": "orders",
+              "action": "view"
+            },
+            {
+              "id": "e779",
+              "order_id": "order-2345",
+              "document_type": "receipt",
+              "language": "de",
+              "visible": true,
+              "enabled": false,
+              "panel": "preview",
+              "action": "pay"
+            },
+            {
+              "id": "e868",
+              "order_id": "order-2345",
+              "document_type": "shipping_label",
+              "language": "en",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "view"
+            },
+            {
+              "id": "e270",
+              "order_id": "order-8076",
+              "document_type": "receipt",
+              "language": "en",
+              "visible": true,
+              "enabled": false,
+              "panel": "history",
+              "action": "pay"
+            },
+            {
+              "id": "e489",
+              "order_id": "order-2345-other",
+              "document_type": "invoice",
+              "language": "de",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "view"
+            },
+            {
+              "id": "e213",
+              "order_id": "order-7582",
+              "document_type": "invoice",
+              "language": "de",
+              "visible": true,
+              "enabled": false,
+              "panel": "orders",
+              "action": "pay"
+            },
+            {
+              "id": "e513",
+              "order_id": "order-1302",
+              "document_type": "invoice",
+              "language": "fr",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "pay"
+            }
+          ]
+        },
+        "instructions": "Choose one next read-only action. First refresh if observed_revision differs from current_revision. Otherwise wait if loading is true. Otherwise click the unique visible, enabled view control in active_panel matching the requested order_id, document_type, and language. Ignore hidden, disabled, other-panel, wrong-document and payment controls. Choose blocked if no matching control exists.",
+        "options": [
+          [
+            "c3240",
+            "Click observed control e513."
+          ],
+          [
+            "c8610",
+            "Click observed control e868."
+          ],
+          [
+            "c3019",
+            "Wait for the page to finish loading."
+          ],
+          [
+            "c1916",
+            "Click observed control e779."
+          ],
+          [
+            "c6667",
+            "Click observed control e489."
+          ],
+          [
+            "c2013",
+            "No allowed matching view control is present."
+          ],
+          [
+            "c2094",
+            "Click observed control e213."
+          ],
+          [
+            "c1424",
+            "Refresh the stale page observation."
+          ],
+          [
+            "c3418",
+            "Click observed control e270."
+          ],
+          [
+            "c9185",
+            "Click observed control e864."
+          ],
+          [
+            "c3166",
+            "Click observed control e126."
+          ]
+        ],
+        "label": 7,
+        "group_id": "browser_controls:088490196d90cbdf135dcb910640020cca21a43fb7971e4fce9572a22d40d8e9",
+        "_source": {
+          "dataset": "generated_policy_cases",
+          "partition_seed": 20264033,
+          "case": 7,
+          "oracle": "browser_controls",
+          "gold": "refresh"
+        },
+        "row": 7,
+        "gold_action": "refresh",
+        "baseline_action": "e489",
+        "adapted_action": "refresh",
+        "category": "corrected",
+        "baseline_violations": [
+          "stale_observation",
+          "wrong_order_id"
+        ],
+        "adapted_violations": []
+      },
+      {
+        "kind": "choice",
+        "task": "browser_controls",
+        "state": {
+          "request": {
+            "order_id": "order-3476",
+            "document_type": "invoice",
+            "language": "de"
+          },
+          "active_panel": "preview",
+          "current_revision": 9613,
+          "observed_revision": 9613,
+          "loading": true,
+          "controls": [
+            {
+              "id": "e581",
+              "order_id": "order-3476",
+              "document_type": "receipt",
+              "language": "en",
+              "visible": false,
+              "enabled": false,
+              "panel": "preview",
+              "action": "view"
+            },
+            {
+              "id": "e739",
+              "order_id": "order-1097",
+              "document_type": "receipt",
+              "language": "de",
+              "visible": true,
+              "enabled": false,
+              "panel": "orders",
+              "action": "view"
+            },
+            {
+              "id": "e239",
+              "order_id": "order-3476",
+              "document_type": "shipping_label",
+              "language": "de",
+              "visible": true,
+              "enabled": true,
+              "panel": "preview",
+              "action": "pay"
+            },
+            {
+              "id": "e980",
+              "order_id": "order-3476",
+              "document_type": "shipping_label",
+              "language": "en",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "view"
+            },
+            {
+              "id": "e117",
+              "order_id": "order-3738",
+              "document_type": "shipping_label",
+              "language": "de",
+              "visible": true,
+              "enabled": true,
+              "panel": "history",
+              "action": "view"
+            },
+            {
+              "id": "e852",
+              "order_id": "order-3476",
+              "document_type": "shipping_label",
+              "language": "en",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "view"
+            },
+            {
+              "id": "e511",
+              "order_id": "order-3476",
+              "document_type": "receipt",
+              "language": "de",
+              "visible": true,
+              "enabled": true,
+              "panel": "orders",
+              "action": "pay"
+            },
+            {
+              "id": "e941",
+              "order_id": "order-1371",
+              "document_type": "invoice",
+              "language": "de",
+              "visible": true,
+              "enabled": true,
+              "panel": "history",
+              "action": "view"
+            }
+          ]
+        },
+        "instructions": "Choose one next read-only action. First refresh if observed_revision differs from current_revision. Otherwise wait if loading is true. Otherwise click the unique visible, enabled view control in active_panel matching the requested order_id, document_type, and language. Ignore hidden, disabled, other-panel, wrong-document and payment controls. Choose blocked if no matching control exists.",
+        "options": [
+          [
+            "c7908",
+            "Click observed control e239."
+          ],
+          [
+            "c7005",
+            "Click observed control e511."
+          ],
+          [
+            "c7608",
+            "Refresh the stale page observation."
+          ],
+          [
+            "c1967",
+            "Wait for the page to finish loading."
+          ],
+          [
+            "c7352",
+            "Click observed control e739."
+          ],
+          [
+            "c2936",
+            "Click observed control e941."
+          ],
+          [
+            "c2988",
+            "Click observed control e581."
+          ],
+          [
+            "c816",
+            "Click observed control e852."
+          ],
+          [
+            "c5315",
+            "Click observed control e117."
+          ],
+          [
+            "c3494",
+            "No allowed matching view control is present."
+          ],
+          [
+            "c9293",
+            "Click observed control e980."
+          ]
+        ],
+        "label": 3,
+        "group_id": "browser_controls:0f45898acdf07696d4d76af6c3aa3e8641d392a22cec8462ce745b380f606133",
+        "_source": {
+          "dataset": "generated_policy_cases",
+          "partition_seed": 20264033,
+          "case": 8,
+          "oracle": "browser_controls",
+          "gold": "wait"
+        },
+        "row": 8,
+        "gold_action": "wait",
+        "baseline_action": "blocked",
+        "adapted_action": "wait",
+        "category": "corrected",
+        "baseline_violations": [],
+        "adapted_violations": []
+      }
+    ]
+  }
+}

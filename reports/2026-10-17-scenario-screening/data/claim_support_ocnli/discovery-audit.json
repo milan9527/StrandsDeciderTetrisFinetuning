@@ -1,0 +1,53 @@
+{
+  "schema": "decider_choice_v1",
+  "labels_semantically_verified": false,
+  "label_source": "user_supplied",
+  "no_cross_split_state_or_group_leakage": true,
+  "splits": {
+    "train": {
+      "rows": 1500,
+      "tasks": {
+        "claim_support_ocnli": 1500
+      },
+      "option_counts": {
+        "3": 1500
+      }
+    },
+    "validation": {
+      "rows": 150,
+      "tasks": {
+        "claim_support_ocnli": 150
+      },
+      "option_counts": {
+        "3": 150
+      }
+    },
+    "calibration": {
+      "rows": 150,
+      "tasks": {
+        "claim_support_ocnli": 150
+      },
+      "option_counts": {
+        "3": 150
+      }
+    },
+    "discovery": {
+      "rows": 150,
+      "tasks": {
+        "claim_support_ocnli": 150
+      },
+      "option_counts": {
+        "3": 150
+      }
+    },
+    "test": {
+      "rows": 300,
+      "tasks": {
+        "claim_support_ocnli": 300
+      },
+      "option_counts": {
+        "3": 300
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "full_gpu_run": true,
+  "gpu": "NVIDIA L4",
+  "optimizer_steps": 100,
+  "lora_updated": true,
+  "pointer_head_updated": true,
+  "source_dataset_matches_remote_training_data": true,
+  "download_sha256_verified_files": 57,
+  "pipeline_sha256_verified_files": 47,
+  "reload_probe_rows": 16,
+  "reload_predictions_and_nll_verified": true,
+  "quality_passed": true,
+  "s3_results": "s3://strands-decider-tetris-training-632930644527/ag-news-unified-20261017-000530/results/",
+  "local_checkpoint": "/home/ec2-user/ai/StrandsDeciderTetrisFinetuning/artifacts/ag-news-gpu-job-reuse/download/pipeline/eval-v1/adapted/calibrated",
+  "best_checkpoint_lora_updated": true,
+  "best_checkpoint_pointer_head_updated": true
+}

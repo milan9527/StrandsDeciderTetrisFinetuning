@@ -1,0 +1,76 @@
+{
+  "checkpoint": "/var/cache/decider/ag-news-unified-20261017-000530/result/pipeline/run-v1/source",
+  "data_manifest": {
+    "schema": "decider_choice_v1",
+    "label_source": "user_supplied",
+    "split_seed": 17,
+    "requested_fractions": [
+      0.7,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "split_strategy": "provided_splits_checked_for_leakage",
+    "splits": {
+      "train": {
+        "rows": 1600,
+        "sha256": "4e21f31ea333f435500ea3a4334d135bb1db8ffaddd122bc656e0a2de3b5381d"
+      },
+      "validation": {
+        "rows": 200,
+        "sha256": "0c8394d342df6e77a8c22c2560a4ad6ffaea0caaec28c57a1d205b4a2c7c9c42"
+      },
+      "calibration": {
+        "rows": 200,
+        "sha256": "f6c443a31fc8d98c72306d38391bf652923e2d4be4a2a805d40d8d04ef10b783"
+      },
+      "test": {
+        "rows": 200,
+        "sha256": "d5d7611d267fe4069738b2b3b2776fc85e5e613e6abe7abc7e0cf7e617ed3595"
+      }
+    }
+  },
+  "evaluation_kind": "full_test",
+  "heldout_choices": {
+    "canonical": {
+      "accuracy": 0.905,
+      "mean_nll": 0.2378437160514295,
+      "rows": 200
+    },
+    "reversed_and_renamed": {
+      "accuracy": 0.9,
+      "mean_nll": 0.2440614941716194,
+      "rows": 200
+    },
+    "same_actual_choice_fraction": 0.985,
+    "by_task": {
+      "ag_news": {
+        "correct": 181,
+        "rows": 200
+      }
+    }
+  },
+  "reload_probe": {
+    "accuracy": 0.75,
+    "mean_nll": 0.5645424094982445,
+    "predictions": [
+      3,
+      2,
+      0,
+      2,
+      1,
+      2,
+      1,
+      1,
+      0,
+      2,
+      1,
+      1,
+      1,
+      3,
+      0,
+      3
+    ],
+    "rows": 16
+  }
+}

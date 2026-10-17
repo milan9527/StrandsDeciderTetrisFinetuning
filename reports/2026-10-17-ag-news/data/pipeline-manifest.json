@@ -1,0 +1,30 @@
+{
+  "schema": "decider_choice_v1",
+  "label_source": "user_supplied",
+  "split_seed": 17,
+  "requested_fractions": [
+    0.7,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "split_strategy": "provided_splits_checked_for_leakage",
+  "splits": {
+    "train": {
+      "rows": 1600,
+      "sha256": "4e21f31ea333f435500ea3a4334d135bb1db8ffaddd122bc656e0a2de3b5381d"
+    },
+    "validation": {
+      "rows": 200,
+      "sha256": "0c8394d342df6e77a8c22c2560a4ad6ffaea0caaec28c57a1d205b4a2c7c9c42"
+    },
+    "calibration": {
+      "rows": 200,
+      "sha256": "f6c443a31fc8d98c72306d38391bf652923e2d4be4a2a805d40d8d04ef10b783"
+    },
+    "test": {
+      "rows": 200,
+      "sha256": "d5d7611d267fe4069738b2b3b2776fc85e5e613e6abe7abc7e0cf7e617ed3595"
+    }
+  }
+}

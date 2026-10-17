@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/usr/local/bin/python",
+    "finetune.py",
+    "--data",
+    "dataset/choices",
+    "--config",
+    "config.json",
+    "--output",
+    "/var/cache/decider/answerability-sft-20261017-013645/result/pipeline"
+  ],
+  "started_at": 1792201072.8479242,
+  "run_kind": "full_gpu",
+  "error": "Completion resume failed: 1",
+  "finished_at": 1792201118.7037687
+}

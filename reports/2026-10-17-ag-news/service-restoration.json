@@ -1,0 +1,52 @@
+{
+  "checked_at_unix": 1792196166.7459033,
+  "instance": "i-0daca64f56056aa1c",
+  "service": "strands-decider-demo-gpu-model-ondemand",
+  "before": {
+    "desiredCount": 1,
+    "runningCount": 1,
+    "taskDefinition": "arn:aws:ecs:us-east-1:632930644527:task-definition/strands-decider-demo-gpu-model:3"
+  },
+  "after": {
+    "desiredCount": 1,
+    "runningCount": 1,
+    "taskDefinition": "arn:aws:ecs:us-east-1:632930644527:task-definition/strands-decider-demo-gpu-model:3"
+  },
+  "pending_count": 0,
+  "task_status": "RUNNING",
+  "controller_concurrency": 1,
+  "schedule": "ENABLED",
+  "startup_evidence": [
+    {
+      "timestamp": 1792196104457,
+      "message": "INFO:     Application startup complete.",
+      "ingestionTime": 1792196104817
+    },
+    {
+      "timestamp": 1792196104464,
+      "message": "INFO:     Uvicorn running on http://127.0.0.1:8100 (Press CTRL+C to quit)",
+      "ingestionTime": 1792196104817
+    },
+    {
+      "timestamp": 1792196122309,
+      "message": "INFO:     Application startup complete.",
+      "ingestionTime": 1792196124830
+    },
+    {
+      "timestamp": 1792196122317,
+      "message": "INFO:     Uvicorn running on http://127.0.0.1:8101 (Press CTRL+C to quit)",
+      "ingestionTime": 1792196124830
+    },
+    {
+      "timestamp": 1792196124149,
+      "message": "INFO:     Application startup complete.",
+      "ingestionTime": 1792196124830
+    },
+    {
+      "timestamp": 1792196124155,
+      "message": "INFO:     Uvicorn running on http://0.0.0.0:8099 (Press CTRL+C to quit)",
+      "ingestionTime": 1792196124830
+    }
+  ],
+  "temporary_task_role_deleted": true
+}

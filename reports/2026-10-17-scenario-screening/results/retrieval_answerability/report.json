@@ -1,0 +1,41 @@
+{
+  "partition": "discovery",
+  "rows": 160,
+  "max_tokens": 572,
+  "canonical": {
+    "accuracy": 0.56875,
+    "mean_nll": 0.8812469667755067,
+    "rows": 160
+  },
+  "reversed_and_renamed": {
+    "accuracy": 0.5625,
+    "mean_nll": 0.8203797133639454,
+    "rows": 160
+  },
+  "correct": 91,
+  "accuracy_wilson_95": [
+    0.4912859643792512,
+    0.6429900680813693
+  ],
+  "same_actual_choice_fraction": 0.98125,
+  "mean_uniform_random_accuracy": 0.5,
+  "macro_accuracy": 0.56875,
+  "by_label_family": {
+    "present": {
+      "rows": 80,
+      "correct": 80
+    },
+    "missing": {
+      "rows": 80,
+      "correct": 11
+    }
+  },
+  "wall_seconds": 14.52,
+  "label_source": "original_public_dataset_labels",
+  "reference_scenarios": [
+    58
+  ],
+  "candidate_for_finetuning": true,
+  "order_instability": false,
+  "majority_label_accuracy": 0.5
+}

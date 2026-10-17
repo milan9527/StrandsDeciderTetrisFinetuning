@@ -1,0 +1,76 @@
+{
+  "environment": {
+    "packages": {
+      "torch": "2.7.1+cu126",
+      "transformers": "5.17.0",
+      "peft": "0.21.0",
+      "tokenizers": "0.23.2"
+    },
+    "gpu": "NVIDIA L4",
+    "free_bytes": 23455662080,
+    "total_bytes": 23659151360
+  },
+  "token_lengths": {
+    "train": {
+      "rows": 1600,
+      "max_tokens": 1562
+    },
+    "validation": {
+      "rows": 200,
+      "max_tokens": 1556
+    },
+    "calibration": {
+      "rows": 200,
+      "max_tokens": 1538
+    },
+    "test": {
+      "rows": 200,
+      "max_tokens": 1502
+    }
+  },
+  "max_length": 4096,
+  "num_slots": 24,
+  "source_weight_sha256": {
+    "head.safetensors": "daad0727152b6185447cee36f78230c144312feb7b19f02749b19645238b5287",
+    "lora/adapter_model.safetensors": "701bdb895887097f7954ec7eb06f7937d3b790035b5462195eb26abd80a4aebc"
+  },
+  "checkpoint": "/opt/models/decider",
+  "external_model_sha256": {
+    "/opt/models/base/config.json": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
+    "/opt/models/base/merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+    "/opt/models/base/model.safetensors-00001-of-00001.safetensors": "928acbf11878c32185bbd863514d191769285065ab9ea14fbfe431303f5fdf2d",
+    "/opt/models/base/model.safetensors.index.json": "74d2ddfe79f10f35b27b498632f02b97b60dd9ec39b35d7c5a890c399284e319",
+    "/opt/models/base/preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+    "/opt/models/base/tokenizer.json": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927",
+    "/opt/models/base/tokenizer_config.json": "e611fbccc7c29ef3b1cafb1cb7ea548d189968632901d678fd62be68c47885de",
+    "/opt/models/base/video_preprocessor_config.json": "d039cd7d88b3502a99edd455496b75b44ecf7dd3b3669748bafac37e6cecc085",
+    "/opt/models/base/vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+    "/opt/models/decider/eval/internal/adequacy_gen_eval.rows.json": "2bf7cdc629d95f91d550d73424b2f8b8a9ebcf21930fa5d1159e51bb0e2144e3",
+    "/opt/models/decider/eval/internal/adequacy_hs2_eval.rows.json": "564095cebcf13a133c45c73d2a15c6a573563a0f431401d8ad48b0f624d6b689",
+    "/opt/models/decider/eval/internal/recipe_heldout.json": "205a511101512f27142999f4139e2bb99c3f6df2caee32c7126eb0cd09192878",
+    "/opt/models/decider/eval/jevbench-w3072/health.json": "4f8fc325572c04be2e15de1b9c7056b3b5c98dc5778d2bdb87b322bd965cd60c",
+    "/opt/models/decider/eval/jevbench-w3072/manifest.json": "2e3cc118e64905dd40f16b4928981506e705bbfd8f72bce2ca75c36d5b4ade49",
+    "/opt/models/decider/eval/jevbench-w3072/paired.json": "ff5f7ac1a200ac7af5f643da9303a0bce216eb1490dcd331acfaa5fddfc89593",
+    "/opt/models/decider/eval/jevbench-w3072/paired.txt": "e7047829d1bf26cd7c052ffa4dfad2fc3d8f4dec65c21cb50997935dd662de18",
+    "/opt/models/decider/eval/jevbench-w3072/run_meta.json": "8b611d30e1e94505e950e368af13b957c00d041af2bef2317a8d4cd4cd2d5602",
+    "/opt/models/decider/eval/jevbench-w3072/summary.json": "8c77fb5a0f6156052c18c60f56ef9f1adc84db265ba7ce1859f278d6b9b5969e",
+    "/opt/models/decider/eval/jevbench-w4096/health.json": "0a4ad7bc2017d90f96e6246c47e7c0fd97681709121ed9d607bb59b0ee4591f5",
+    "/opt/models/decider/eval/jevbench-w4096/manifest.json": "56aec996cd7526d579e990d0f10a0c0d783992df4033d22bc5b438d59108be42",
+    "/opt/models/decider/eval/jevbench-w4096/paired.json": "319329f08e1a3c6885fbe0984f1ab50f7ec66c128f6e33072b31ccc9f3f8784b",
+    "/opt/models/decider/eval/jevbench-w4096/paired.txt": "0864ac86efe784daa9401c53b83cd2e81271468be43050e5e60a6ed4d7c18607",
+    "/opt/models/decider/eval/jevbench-w4096/run_meta.json": "c8b790dcae49ff081cc52c5261fdcb765aaaf2c13ff87a8c67263c5cdd2426da",
+    "/opt/models/decider/eval/jevbench-w4096/summary.json": "67cbaf93b182869abd656583e873e3e1761866c03910daa7e252b5bc690e16a0",
+    "/opt/models/decider/eval/summary.json": "581a5cbd31f142c00a282d21f7d9a2603a66b4f07fc11dcca9e7b32ff0a3f169",
+    "/opt/models/decider/head.safetensors": "daad0727152b6185447cee36f78230c144312feb7b19f02749b19645238b5287",
+    "/opt/models/decider/history.json": "a30496e55bf78788094ac95297e49411a3533a495e4664507bd7e9bdd7877b6e",
+    "/opt/models/decider/hobson_config.json": "4f8343e4a1c0d613866353680d6ddae2b8fff986f7c75c60b1554f6e3e76cd29",
+    "/opt/models/decider/lora/adapter_config.json": "eb48e4ff81569664c4dd2a504b53da598eeaa390c265c2269ce4fe7526eab38a",
+    "/opt/models/decider/lora/adapter_model.safetensors": "701bdb895887097f7954ec7eb06f7937d3b790035b5462195eb26abd80a4aebc",
+    "/opt/models/decider/packaging.json": "801460c6cf72ab6e534287df1d435d371c0c75d75a19dbafc04ab3c2bdd55956",
+    "/opt/models/decider/provenance.json": "eb9ab7e029d9cc6718a6302a3edc6085bbb42c4ee42284b8ee7727f0ab4416a1",
+    "/opt/models/decider/tokenizer.json": "a2cdd2e108566b09079afa8d266e9e65e7c280f27b771218237a06de5ba9cd86",
+    "/opt/models/decider/tokenizer_config.json": "8671bed7c852ce9e661be94f179a7b4ffd091c2a65aea0363e5501c20318ee45",
+    "/opt/models/decider/train_config.json": "5d15c863a3b83103d4d59068a8341b61745b10079d6f8509fab537415d1eb31e",
+    "/opt/models/decider/training/data_sha256.txt": "46412da746419587e68891679c65c94f5d0f7bab246b54d76719578273579169"
+  }
+}

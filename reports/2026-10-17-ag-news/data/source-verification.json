@@ -1,0 +1,6 @@
+{
+  "source_label_checks": 2200,
+  "original_test_only": true,
+  "no_repeated_normalized_title_or_body": true,
+  "independent_source_check_passed": true
+}

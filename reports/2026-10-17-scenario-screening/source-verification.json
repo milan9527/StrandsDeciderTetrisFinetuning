@@ -1,0 +1,14 @@
+{
+  "source_labels_and_states_checked": {
+    "completion_receipts": 2360,
+    "model_routing": 2360,
+    "browser_controls": 2360,
+    "claim_support_ocnli": 2250,
+    "support_routing_banking": 1320,
+    "retrieval_answerability": 2360
+  },
+  "total_rows": 13010,
+  "cross_partition_groups_verified": true,
+  "gpu_bundle_contains_final_test": false,
+  "screening_rows": 910
+}

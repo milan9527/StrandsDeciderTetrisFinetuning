@@ -1,0 +1,33 @@
+{
+  "command": [
+    "/usr/local/bin/python",
+    "finetune.py",
+    "--data",
+    "dataset/choices",
+    "--config",
+    "config.json",
+    "--output",
+    "/var/cache/decider/answerability-sft-20261017-014016/result/pipeline"
+  ],
+  "started_at": 1792201285.5749683,
+  "run_kind": "full_gpu",
+  "completion_resume": {
+    "command": [
+      "/usr/local/bin/python",
+      "finetune.py",
+      "--data",
+      "dataset/choices",
+      "--config",
+      "config.json",
+      "--output",
+      "/var/cache/decider/completion-sft-20261017-010911/result/pipeline",
+      "--resume"
+    ],
+    "exit_code": 1,
+    "source_run": "/var/cache/decider/completion-sft-20261017-010911",
+    "finished_at": 1792201355.496446,
+    "original_kernel_cache_reused": true
+  },
+  "exit_code": 2,
+  "finished_at": 1792201837.7455049
+}

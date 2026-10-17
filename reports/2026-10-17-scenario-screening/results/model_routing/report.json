@@ -1,0 +1,40 @@
+{
+  "partition": "discovery",
+  "rows": 160,
+  "max_tokens": 1116,
+  "canonical": {
+    "accuracy": 0.30625,
+    "mean_nll": 1.6656404584646225,
+    "rows": 160
+  },
+  "reversed_and_renamed": {
+    "accuracy": 0.25,
+    "mean_nll": 1.7062266245484352,
+    "rows": 160
+  },
+  "correct": 49,
+  "accuracy_wilson_95": [
+    0.24006651044279392,
+    0.3815192162590937
+  ],
+  "same_actual_choice_fraction": 0.46875,
+  "mean_uniform_random_accuracy": 0.1428571428571426,
+  "macro_accuracy": 0.30859375,
+  "by_label_family": {
+    "defer": {
+      "rows": 32,
+      "correct": 10
+    },
+    "route_to_model": {
+      "rows": 128,
+      "correct": 39
+    }
+  },
+  "wall_seconds": 53.62,
+  "label_source": "deterministic_synthetic_policy",
+  "reference_scenarios": [
+    19
+  ],
+  "candidate_for_finetuning": true,
+  "order_instability": true
+}

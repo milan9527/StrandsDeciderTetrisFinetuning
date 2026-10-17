@@ -1,0 +1,28 @@
+{"command": ["/usr/local/bin/python", "-m", "finetuning.checks", "reload", "--upstream", "/var/cache/decider/completion-sft-20261017-010911/upstream", "--data", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/data", "--device", "cuda", "--checkpoint", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/eval-v1/adapted/calibrated", "--reference", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/eval-v1/adapted/report.json", "--batch-size", "2", "--output", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/verification"]}
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 4540.90it/s]
+{"command": ["/usr/local/bin/python", "-m", "finetuning.checks", "reload", "--upstream", "/var/cache/decider/completion-sft-20261017-010911/upstream", "--data", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/data", "--device", "cuda", "--checkpoint", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/eval-v1/adapted/calibrated", "--reference", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/eval-v1/adapted/report.json", "--batch-size", "2", "--output", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/verification"]}
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 4525.74it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/checks.py", line 124, in <module>
+    main()
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/checks.py", line 118, in main
+    report = {"preflight": preflight, "reload": reload_check}[args.action](args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/checks.py", line 97, in reload_check
+    raise ValueError("Reloaded checkpoint changed probe probabilities/loss")
+ValueError: Reloaded checkpoint changed probe probabilities/loss
+{"command": ["/usr/local/bin/python", "-m", "finetuning.checks", "reload", "--upstream", "/var/cache/decider/completion-sft-20261017-010911/upstream", "--data", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/data", "--device", "cuda", "--checkpoint", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/eval-v1/adapted/calibrated", "--reference", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/eval-v1/adapted/report.json", "--batch-size", "2", "--output", "/var/cache/decider/completion-sft-20261017-010911/result/pipeline/verification"]}
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 4535.64it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/checks.py", line 124, in <module>
+    main()
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/checks.py", line 118, in main
+    report = {"preflight": preflight, "reload": reload_check}[args.action](args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/cache/decider/completion-sft-20261017-010911/finetuning/checks.py", line 97, in reload_check
+    raise ValueError("Reloaded checkpoint changed probe probabilities/loss")
+ValueError: Reloaded checkpoint changed probe probabilities/loss

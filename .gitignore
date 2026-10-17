@@ -8,6 +8,8 @@ __pycache__/
 artifacts/
 .deployment/
 *.log
+# Audited experiment logs are part of the report checksum manifests.
+!reports/**/*.log
 *.sqlite*
 *-credentials.json
 *.pem

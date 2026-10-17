@@ -1,0 +1,48 @@
+{
+  "partition": "discovery",
+  "rows": 160,
+  "max_tokens": 1021,
+  "canonical": {
+    "accuracy": 0.525,
+    "mean_nll": 2.126045586541295,
+    "rows": 160
+  },
+  "reversed_and_renamed": {
+    "accuracy": 0.4625,
+    "mean_nll": 2.1223976319655775,
+    "rows": 160
+  },
+  "correct": 84,
+  "accuracy_wilson_95": [
+    0.4479452137471758,
+    0.6008824344203225
+  ],
+  "same_actual_choice_fraction": 0.7625,
+  "mean_uniform_random_accuracy": 0.09090909090909124,
+  "macro_accuracy": 0.24479166666666666,
+  "by_label_family": {
+    "click_control": {
+      "rows": 96,
+      "correct": 82
+    },
+    "refresh": {
+      "rows": 32,
+      "correct": 0
+    },
+    "wait": {
+      "rows": 16,
+      "correct": 0
+    },
+    "blocked": {
+      "rows": 16,
+      "correct": 2
+    }
+  },
+  "wall_seconds": 47.8,
+  "label_source": "deterministic_synthetic_policy",
+  "reference_scenarios": [
+    27
+  ],
+  "candidate_for_finetuning": true,
+  "order_instability": true
+}

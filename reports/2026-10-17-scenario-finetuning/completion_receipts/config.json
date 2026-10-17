@@ -1,0 +1,30 @@
+{
+  "model": {
+    "checkpoint": "/opt/models/decider",
+    "base_model": "/opt/models/base"
+  },
+  "runtime": {
+    "device": "cuda",
+    "auto_setup": false,
+    "python": "/usr/local/bin/python",
+    "upstream": "/var/cache/decider/completion-sft-20261017-010911/upstream"
+  },
+  "training": {
+    "epochs": 1,
+    "batch_size": 2,
+    "accumulation": 8,
+    "lr": 2e-05,
+    "head_lr": 0.0001,
+    "eval_every": 50,
+    "seed": 20261017
+  },
+  "evaluation": {
+    "batch_size": 2,
+    "games": false
+  },
+  "quality": {
+    "min_accuracy": 0.8,
+    "max_accuracy_drop": 0.0,
+    "min_order_consistency": 0.9
+  }
+}

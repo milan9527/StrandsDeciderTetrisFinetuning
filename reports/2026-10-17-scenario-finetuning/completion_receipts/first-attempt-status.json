@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/usr/local/bin/python",
+    "finetune.py",
+    "--data",
+    "dataset/choices",
+    "--config",
+    "config.json",
+    "--output",
+    "/var/cache/decider/completion-sft-20261017-010911/result/pipeline"
+  ],
+  "started_at": 1792199418.5833528,
+  "run_kind": "full_gpu",
+  "error": "Command '['/usr/local/bin/python', 'finetune.py', '--data', 'dataset/choices', '--config', 'config.json', '--output', '/var/cache/decider/completion-sft-20261017-010911/result/pipeline']' timed out after 1500 seconds",
+  "finished_at": 1792200918.5912433
+}

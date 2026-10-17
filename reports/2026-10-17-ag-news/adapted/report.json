@@ -1,0 +1,84 @@
+{
+  "checkpoint": "/var/cache/decider/ag-news-unified-20261017-000530/result/pipeline/run-v1/best",
+  "data_manifest": {
+    "schema": "decider_choice_v1",
+    "label_source": "user_supplied",
+    "split_seed": 17,
+    "requested_fractions": [
+      0.7,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "split_strategy": "provided_splits_checked_for_leakage",
+    "splits": {
+      "train": {
+        "rows": 1600,
+        "sha256": "4e21f31ea333f435500ea3a4334d135bb1db8ffaddd122bc656e0a2de3b5381d"
+      },
+      "validation": {
+        "rows": 200,
+        "sha256": "0c8394d342df6e77a8c22c2560a4ad6ffaea0caaec28c57a1d205b4a2c7c9c42"
+      },
+      "calibration": {
+        "rows": 200,
+        "sha256": "f6c443a31fc8d98c72306d38391bf652923e2d4be4a2a805d40d8d04ef10b783"
+      },
+      "test": {
+        "rows": 200,
+        "sha256": "d5d7611d267fe4069738b2b3b2776fc85e5e613e6abe7abc7e0cf7e617ed3595"
+      }
+    }
+  },
+  "evaluation_kind": "full_test",
+  "calibration": {
+    "method": "choice_temperature_grid_minimum_nll",
+    "scope": "user_labelled_choice_dataset_only",
+    "split": "calibration",
+    "rows": 200,
+    "temperature": 1.4125375747680664,
+    "calibration_nll": 0.33578815556829794
+  },
+  "heldout_choices": {
+    "canonical": {
+      "accuracy": 0.91,
+      "mean_nll": 0.22605454843491316,
+      "rows": 200
+    },
+    "reversed_and_renamed": {
+      "accuracy": 0.925,
+      "mean_nll": 0.23364271349273621,
+      "rows": 200
+    },
+    "same_actual_choice_fraction": 0.965,
+    "by_task": {
+      "ag_news": {
+        "correct": 182,
+        "rows": 200
+      }
+    }
+  },
+  "reload_probe": {
+    "accuracy": 0.8125,
+    "mean_nll": 0.5477272542193532,
+    "predictions": [
+      3,
+      2,
+      0,
+      2,
+      1,
+      2,
+      1,
+      1,
+      0,
+      2,
+      1,
+      1,
+      1,
+      2,
+      0,
+      3
+    ],
+    "rows": 16
+  }
+}

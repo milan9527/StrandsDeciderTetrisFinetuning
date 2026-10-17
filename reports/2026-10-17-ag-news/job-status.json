@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/usr/local/bin/python",
+    "finetune.py",
+    "--data",
+    "dataset/choices",
+    "--config",
+    "config.json",
+    "--output",
+    "/var/cache/decider/ag-news-unified-20261017-000530/result/pipeline"
+  ],
+  "started_at": 1792195599.0944307,
+  "run_kind": "full_gpu",
+  "exit_code": 0,
+  "finished_at": 1792196069.7338276
+}

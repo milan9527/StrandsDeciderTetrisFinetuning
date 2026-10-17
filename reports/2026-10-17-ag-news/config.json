@@ -1,0 +1,51 @@
+{
+  "model": {
+    "checkpoint": "/opt/models/decider",
+    "base_model": "/opt/models/base"
+  },
+  "data": {
+    "location": "/var/cache/decider/ag-news-unified-20261017-000530/dataset/choices",
+    "mode": "auto",
+    "fractions": [
+      0.7,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "seed": 17
+  },
+  "runtime": {
+    "python": "/usr/local/bin/python",
+    "upstream": "/var/cache/decider/ag-news-unified-20261017-000530/upstream",
+    "device": "cuda",
+    "auto_setup": false,
+    "timeout_minutes": 45
+  },
+  "training": {
+    "epochs": 1,
+    "batch_size": 2,
+    "accumulation": 8,
+    "lr": 2e-05,
+    "head_lr": 0.0001,
+    "eval_every": 50,
+    "seed": 20261016,
+    "cpu_threads": 4
+  },
+  "evaluation": {
+    "batch_size": 2,
+    "games": false,
+    "seeds": [
+      50000,
+      50001,
+      50002,
+      50003,
+      50004
+    ],
+    "pieces": 50
+  },
+  "quality": {
+    "min_accuracy": 0.8,
+    "max_accuracy_drop": 0.0,
+    "min_order_consistency": 0.85
+  }
+}

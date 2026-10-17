@@ -1,0 +1,370 @@
+{
+  "partition": "test",
+  "task": "retrieval_answerability",
+  "models": {
+    "baseline": {
+      "rows": 200,
+      "correct": 108,
+      "accuracy": 0.54,
+      "confusion_matrix": {
+        "missing": {
+          "present": 92,
+          "missing": 8
+        },
+        "present": {
+          "present": 100
+        }
+      },
+      "by_label": {
+        "missing": {
+          "rows": 100,
+          "correct": 8
+        },
+        "present": {
+          "rows": 100,
+          "correct": 100
+        }
+      },
+      "false_positive_label": "present",
+      "negative_rows": 100,
+      "false_positive_count": 92,
+      "false_positive_rate": 0.92,
+      "reversed_correct": 110,
+      "same_actual_choice_count": 192
+    },
+    "adapted": {
+      "rows": 200,
+      "correct": 156,
+      "accuracy": 0.78,
+      "confusion_matrix": {
+        "missing": {
+          "missing": 66,
+          "present": 34
+        },
+        "present": {
+          "present": 90,
+          "missing": 10
+        }
+      },
+      "by_label": {
+        "missing": {
+          "rows": 100,
+          "correct": 66
+        },
+        "present": {
+          "rows": 100,
+          "correct": 90
+        }
+      },
+      "false_positive_label": "present",
+      "negative_rows": 100,
+      "false_positive_count": 34,
+      "false_positive_rate": 0.34,
+      "reversed_correct": 158,
+      "same_actual_choice_count": 188
+    }
+  },
+  "paired_outcomes": {
+    "corrected": 58,
+    "both_correct": 98,
+    "both_wrong": 34,
+    "regressed": 10
+  },
+  "example_selection": "first three in original test order per non-both-correct category",
+  "examples": {
+    "corrected": [
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "What differing variable remains the same size when providing the four likelihoods of case complexities?",
+          "retrieved_passage": "The best, worst and average case complexity refer to three different ways of measuring the time complexity (or any other complexity measure) of different inputs of the same size. Since some inputs of size n may be faster to solve than others, we define the following complexities:"
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c1909",
+            "The passage contains an answer to the specific question."
+          ],
+          [
+            "c465",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ]
+        ],
+        "label": 1,
+        "group_id": "retrieval_answerability:c2d47d9f95109ab90d88ac97a1f87fd6398ad326fd9c801bc4e399e695e9fd58",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "5ad54c2f5b96ef001a10ac5f",
+          "article": "Computational_complexity_theory",
+          "gold": "missing"
+        },
+        "row": 0,
+        "category": "corrected",
+        "baseline_prediction": "present",
+        "adapted_prediction": "missing"
+      },
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "What is not a form of immunological memory?",
+          "retrieved_passage": "When B cells and T cells are activated and begin to replicate, some of their offspring become long-lived memory cells. Throughout the lifetime of an animal, these memory cells remember each specific pathogen encountered and can mount a strong response if the pathogen is detected again. This is \"adaptive\" because it occurs during the lifetime of an individual as an adaptation to infection with that pathogen and prepares the immune system for future challenges. Immunological memory can be in the form of either passive short-term memory or active long-term memory."
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c2365",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ],
+          [
+            "c7480",
+            "The passage contains an answer to the specific question."
+          ]
+        ],
+        "label": 0,
+        "group_id": "retrieval_answerability:ec224fa7e4440e486e59d6fca66baf79a84d0b392dce50e9bc90010f3a5a0501",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "5ad4d6a75b96ef001a10a2c8",
+          "article": "Immune_system",
+          "gold": "missing"
+        },
+        "row": 2,
+        "category": "corrected",
+        "baseline_prediction": "present",
+        "adapted_prediction": "missing"
+      },
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "How often do plankton need to feed?",
+          "retrieved_passage": "The Lobata have a pair of lobes, which are muscular, cuplike extensions of the body that project beyond the mouth. Their inconspicuous tentacles originate from the corners of the mouth, running in convoluted grooves and spreading out over the inner surface of the lobes (rather than trailing far behind, as in the Cydippida). Between the lobes on either side of the mouth, many species of lobates have four auricles, gelatinous projections edged with cilia that produce water currents that help direct microscopic prey toward the mouth. This combination of structures enables lobates to feed continuously on suspended planktonic prey."
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c2293",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ],
+          [
+            "c4805",
+            "The passage contains an answer to the specific question."
+          ]
+        ],
+        "label": 0,
+        "group_id": "retrieval_answerability:42ef2ce366f07f0e800794948a24142c20a33d3330f7c731396e94b58a2f0ed8",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "5a838676e60761001a2eb764",
+          "article": "Ctenophora",
+          "gold": "missing"
+        },
+        "row": 3,
+        "category": "corrected",
+        "baseline_prediction": "present",
+        "adapted_prediction": "missing"
+      }
+    ],
+    "both_wrong": [
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "What flows after Bingen and Bonn?",
+          "retrieved_passage": "Between Bingen and Bonn, the Middle Rhine flows through the Rhine Gorge, a formation which was created by erosion. The rate of erosion equaled the uplift in the region, such that the river was left at about its original level while the surrounding lands raised. The gorge is quite deep and is the stretch of the river which is known for its many castles and vineyards. It is a UNESCO World Heritage Site (2002) and known as \"the Romantic Rhine\", with more than 40 castles and fortresses from the Middle Ages and many quaint and lovely country villages."
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c4037",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ],
+          [
+            "c2828",
+            "The passage contains an answer to the specific question."
+          ]
+        ],
+        "label": 0,
+        "group_id": "retrieval_answerability:d21a06552bb13cd9390565f06257dd6164fda5333b25638e88f8a199652c25eb",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "5ad27d5dd7d075001a4296c0",
+          "article": "Rhine",
+          "gold": "missing"
+        },
+        "row": 8,
+        "category": "both_wrong",
+        "baseline_prediction": "present",
+        "adapted_prediction": "present"
+      },
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "What has a stronger association with the MHC:antigen complex than killer T cells?",
+          "retrieved_passage": "Helper T cells express T cell receptors (TCR) that recognize antigen bound to Class II MHC molecules. The MHC:antigen complex is also recognized by the helper cell's CD4 co-receptor, which recruits molecules inside the T cell (e.g., Lck) that are responsible for the T cell's activation. Helper T cells have a weaker association with the MHC:antigen complex than observed for killer T cells, meaning many receptors (around 200–300) on the helper T cell must be bound by an MHC:antigen in order to activate the helper cell, while killer T cells can be activated by engagement of a single MHC:antigen molecule. Helper T cell activation also requires longer duration of engagement with an antigen-presenting cell. The activation of a resting helper T cell causes it to release cytokines that influence the activity of many cell types. Cytokine signals produced by helper T cells enhance the microbicidal function of macrophages and the activity of killer T cells. In addition, helper T cell activation causes an upregulation of molecules expressed on the T cell's surface, such as CD40 ligand (also called CD154), which provide extra stimulatory signals typically required to activate antibody-producing B cells."
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c9899",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ],
+          [
+            "c6553",
+            "The passage contains an answer to the specific question."
+          ]
+        ],
+        "label": 0,
+        "group_id": "retrieval_answerability:ec224fa7e4440e486e59d6fca66baf79a84d0b392dce50e9bc90010f3a5a0501",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "5ad4d2d65b96ef001a10a1f9",
+          "article": "Immune_system",
+          "gold": "missing"
+        },
+        "row": 12,
+        "category": "both_wrong",
+        "baseline_prediction": "present",
+        "adapted_prediction": "present"
+      },
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "What is the Swedish word for school voucher?",
+          "retrieved_passage": "In Sweden, pupils are free to choose a private school and the private school gets paid the same amount as municipal schools. Over 10% of Swedish pupils were enrolled in private schools in 2008. Sweden is internationally known for this innovative school voucher model that provides Swedish pupils with the opportunity to choose the school they prefer. For instance, the biggest school chain, Kunskapsskolan (“The Knowledge School”), offers 30 schools and a web-based environment, has 700 employees and teaches nearly 10,000 pupils. The Swedish system has been recommended to Barack Obama."
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c9361",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ],
+          [
+            "c7439",
+            "The passage contains an answer to the specific question."
+          ]
+        ],
+        "label": 0,
+        "group_id": "retrieval_answerability:118e7421e0433a4b50f9b6384926e485ba192dd9078d858797f0af3d8e0c9c32",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "5a67b94bf038b7001ab0c446",
+          "article": "Private_school",
+          "gold": "missing"
+        },
+        "row": 15,
+        "category": "both_wrong",
+        "baseline_prediction": "present",
+        "adapted_prediction": "present"
+      }
+    ],
+    "regressed": [
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "What is the force that causes rigid strength in structures?",
+          "retrieved_passage": "The normal force is due to repulsive forces of interaction between atoms at close contact. When their electron clouds overlap, Pauli repulsion (due to fermionic nature of electrons) follows resulting in the force that acts in a direction normal to the surface interface between two objects.:93 The normal force, for example, is responsible for the structural integrity of tables and floors as well as being the force that responds whenever an external force pushes on a solid object. An example of the normal force in action is the impact force on an object crashing into an immobile surface."
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c1423",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ],
+          [
+            "c9335",
+            "The passage contains an answer to the specific question."
+          ]
+        ],
+        "label": 1,
+        "group_id": "retrieval_answerability:cfda1755ffb11565e5b6b5081f92f40749fedd31fa578e8af78b89937f89a6a3",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "57379a4b1c456719005744d0",
+          "article": "Force",
+          "gold": "present"
+        },
+        "row": 21,
+        "category": "regressed",
+        "baseline_prediction": "present",
+        "adapted_prediction": "missing"
+      },
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "Who is the parent company of NDS?",
+          "retrieved_passage": "BSkyB utilises the VideoGuard pay-TV scrambling system owned by NDS, a Cisco Systems company. There are tight controls over use of VideoGuard decoders; they are not available as stand-alone DVB CAMs (conditional-access modules). BSkyB has design authority over all digital satellite receivers capable of receiving their service. The receivers, though designed and built by different manufacturers, must conform to the same user interface look-and-feel as all the others. This extends to the Personal video recorder (PVR) offering (branded Sky+)."
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c3628",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ],
+          [
+            "c1797",
+            "The passage contains an answer to the specific question."
+          ]
+        ],
+        "label": 1,
+        "group_id": "retrieval_answerability:3fea6c9dc1f6b58100fecc1d4054119abe7cf6ec70c2148e279cddc7866976dc",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "57094d489928a8140047150c",
+          "article": "Sky_(United_Kingdom)",
+          "gold": "present"
+        },
+        "row": 28,
+        "category": "regressed",
+        "baseline_prediction": "present",
+        "adapted_prediction": "missing"
+      },
+      {
+        "kind": "choice",
+        "task": "retrieval_answerability",
+        "state": {
+          "question": "How many tree species were found in one square kilometer of Ecuadorian rainforest in 2001?",
+          "retrieved_passage": "The biodiversity of plant species is the highest on Earth with one 2001 study finding a quarter square kilometer (62 acres) of Ecuadorian rainforest supports more than 1,100 tree species. A study in 1999 found one square kilometer (247 acres) of Amazon rainforest can contain about 90,790 tonnes of living plants. The average plant biomass is estimated at 356 ± 47 tonnes per hectare. To date, an estimated 438,000 species of plants of economic and social interest have been registered in the region with many more remaining to be discovered or catalogued. The total number of tree species in the region is estimated at 16,000."
+        },
+        "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+        "options": [
+          [
+            "c7467",
+            "The passage contains an answer to the specific question."
+          ],
+          [
+            "c6016",
+            "The passage does not contain the requested answer; retrieve more evidence."
+          ]
+        ],
+        "label": 0,
+        "group_id": "retrieval_answerability:28b8f1dd0bc0d941119ff2ef448ed69ca8492550dee78e80701c0284782182e6",
+        "_source": {
+          "dataset": "SQuAD 2.0",
+          "official_split": "dev",
+          "id": "5729f2646aef051400155131",
+          "article": "Amazon_rainforest",
+          "gold": "present"
+        },
+        "row": 33,
+        "category": "regressed",
+        "baseline_prediction": "present",
+        "adapted_prediction": "missing"
+      }
+    ]
+  }
+}

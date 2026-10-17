@@ -1,0 +1,81 @@
+{
+  "partition": "discovery",
+  "rows": 120,
+  "max_tokens": 380,
+  "canonical": {
+    "accuracy": 0.925,
+    "mean_nll": 0.3744269810984406,
+    "rows": 120
+  },
+  "reversed_and_renamed": {
+    "accuracy": 0.9166666666666666,
+    "mean_nll": 0.3638294847069725,
+    "rows": 120
+  },
+  "correct": 111,
+  "accuracy_wilson_95": [
+    0.8635894316089088,
+    0.9600433379935513
+  ],
+  "same_actual_choice_fraction": 0.9416666666666667,
+  "mean_uniform_random_accuracy": 0.08333333333333334,
+  "macro_accuracy": 0.9249999999999999,
+  "by_label_family": {
+    "Refund_not_showing_up": {
+      "rows": 10,
+      "correct": 9
+    },
+    "extra_charge_on_statement": {
+      "rows": 10,
+      "correct": 9
+    },
+    "request_refund": {
+      "rows": 10,
+      "correct": 9
+    },
+    "reverted_card_payment?": {
+      "rows": 10,
+      "correct": 10
+    },
+    "card_not_working": {
+      "rows": 10,
+      "correct": 8
+    },
+    "transaction_charged_twice": {
+      "rows": 10,
+      "correct": 10
+    },
+    "pending_card_payment": {
+      "rows": 10,
+      "correct": 10
+    },
+    "card_payment_fee_charged": {
+      "rows": 10,
+      "correct": 7
+    },
+    "balance_not_updated_after_bank_transfer": {
+      "rows": 10,
+      "correct": 10
+    },
+    "card_payment_wrong_exchange_rate": {
+      "rows": 10,
+      "correct": 9
+    },
+    "declined_card_payment": {
+      "rows": 10,
+      "correct": 10
+    },
+    "card_payment_not_recognised": {
+      "rows": 10,
+      "correct": 10
+    }
+  },
+  "wall_seconds": 10.91,
+  "label_source": "original_public_dataset_labels",
+  "reference_scenarios": [
+    40
+  ],
+  "candidate_for_finetuning": false,
+  "order_instability": false,
+  "majority_label_accuracy": 0.08333333333333333
+}

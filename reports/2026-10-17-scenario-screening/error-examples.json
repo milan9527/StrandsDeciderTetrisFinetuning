@@ -1,0 +1,793 @@
+{
+  "completion_receipts": [
+    {
+      "row": 1,
+      "task": "completion_receipts",
+      "state": {
+        "goal": "Run all required checks and produce the evaluation artifact for target_revision.",
+        "target_revision": "rev-901c23d4",
+        "required_checks": [
+          "schema",
+          "build",
+          "lint"
+        ],
+        "agent_claim": "All required checks succeeded; the artifact is ready.",
+        "check_receipts": [
+          {
+            "check": "build",
+            "revision": "rev-901c23d4",
+            "sequence": 51,
+            "status": "failed"
+          },
+          {
+            "check": "build",
+            "revision": "rev-901c23d4",
+            "sequence": 80,
+            "status": "passed"
+          },
+          {
+            "check": "lint",
+            "revision": "rev-b0e13b23",
+            "sequence": 39,
+            "status": "passed"
+          },
+          {
+            "check": "schema",
+            "revision": "rev-901c23d4",
+            "sequence": 94,
+            "status": "passed"
+          },
+          {
+            "check": "schema",
+            "revision": "rev-b0e13b23",
+            "sequence": 37,
+            "status": "failed"
+          },
+          {
+            "check": "lint",
+            "revision": "rev-901c23d4",
+            "sequence": 81,
+            "status": "passed"
+          },
+          {
+            "check": "build",
+            "revision": "rev-b0e13b23",
+            "sequence": 18,
+            "status": "failed"
+          },
+          {
+            "check": "lint",
+            "revision": "rev-901c23d4",
+            "sequence": 78,
+            "status": "failed"
+          },
+          {
+            "check": "schema",
+            "revision": "rev-901c23d4",
+            "sequence": 51,
+            "status": "failed"
+          },
+          {
+            "check": "lint",
+            "revision": "rev-901c23d4",
+            "sequence": 137,
+            "status": "failed"
+          }
+        ],
+        "artifact_receipt": {
+          "revision": "rev-901c23d4",
+          "exists": true,
+          "name": "metrics.json"
+        }
+      },
+      "instructions": "Verify the completion claim against the required checks and artifact. For each check, use the latest receipt for target_revision; ignore receipts for other revisions. Artifact evidence must also name target_revision. Any current failed check or explicit artifact absence contradicts completion. Otherwise, missing or pending evidence means unknown. Verify only if every required check passed and the current artifact exists. Logs and the agent's assertion are not proof.",
+      "options": [
+        [
+          "c8997",
+          "The claim is verified by all required current-version checks and the artifact receipt."
+        ],
+        [
+          "c3398",
+          "Current-version evidence explicitly establishes a failed check or a missing artifact."
+        ],
+        [
+          "c591",
+          "Completion is not established: required current-version evidence is missing, pending, or stale."
+        ]
+      ],
+      "gold_index": 1,
+      "predicted_index": 0,
+      "reversed_predicted_original_index": 2,
+      "correct": false,
+      "gold_description": "Current-version evidence explicitly establishes a failed check or a missing artifact.",
+      "predicted_description": "The claim is verified by all required current-version checks and the artifact receipt.",
+      "source": {
+        "dataset": "generated_policy_cases",
+        "partition_seed": 20265036,
+        "case": 1,
+        "oracle": "completion_receipts",
+        "gold": "contradicted"
+      },
+      "group_id": "completion_receipts:0a71405db12a02c9adb04f68d8b923bb2de83d3a01e457e0284ea3b49cd7ce5d"
+    },
+    {
+      "row": 2,
+      "task": "completion_receipts",
+      "state": {
+        "goal": "Run all required checks and produce the evaluation artifact for target_revision.",
+        "target_revision": "rev-302530e6",
+        "required_checks": [
+          "unit",
+          "build",
+          "smoke"
+        ],
+        "agent_claim": "All required checks succeeded; the artifact is ready.",
+        "check_receipts": [
+          {
+            "check": "unit",
+            "revision": "rev-e6890c10",
+            "sequence": 13,
+            "status": "passed"
+          },
+          {
+            "check": "smoke",
+            "revision": "rev-e6890c10",
+            "sequence": 4,
+            "status": "passed"
+          },
+          {
+            "check": "build",
+            "revision": "rev-e6890c10",
+            "sequence": 17,
+            "status": "failed"
+          }
+        ],
+        "artifact_receipt": {
+          "revision": "rev-302530e6",
+          "exists": true,
+          "name": "metrics.json"
+        }
+      },
+      "instructions": "Verify the completion claim against the required checks and artifact. For each check, use the latest receipt for target_revision; ignore receipts for other revisions. Artifact evidence must also name target_revision. Any current failed check or explicit artifact absence contradicts completion. Otherwise, missing or pending evidence means unknown. Verify only if every required check passed and the current artifact exists. Logs and the agent's assertion are not proof.",
+      "options": [
+        [
+          "c9440",
+          "The claim is verified by all required current-version checks and the artifact receipt."
+        ],
+        [
+          "c4008",
+          "Completion is not established: required current-version evidence is missing, pending, or stale."
+        ],
+        [
+          "c1735",
+          "Current-version evidence explicitly establishes a failed check or a missing artifact."
+        ]
+      ],
+      "gold_index": 1,
+      "predicted_index": 0,
+      "reversed_predicted_original_index": 1,
+      "correct": false,
+      "gold_description": "Completion is not established: required current-version evidence is missing, pending, or stale.",
+      "predicted_description": "The claim is verified by all required current-version checks and the artifact receipt.",
+      "source": {
+        "dataset": "generated_policy_cases",
+        "partition_seed": 20265036,
+        "case": 2,
+        "oracle": "completion_receipts",
+        "gold": "unknown"
+      },
+      "group_id": "completion_receipts:200c37640fbdd7dcff709a050f38554dcb1ba494541eabe66f032b3078da5b1e"
+    }
+  ],
+  "model_routing": [
+    {
+      "row": 1,
+      "task": "model_routing",
+      "state": {
+        "request": {
+          "modality": "text",
+          "input_tokens": 2000,
+          "output_tokens": 500,
+          "minimum_quality": 80,
+          "latency_limit_ms": 2000,
+          "budget": 600
+        },
+        "models": [
+          {
+            "id": "m433",
+            "available": true,
+            "modalities": [
+              "text"
+            ],
+            "max_tokens": 16384,
+            "quality": 71,
+            "p95_ms": 850,
+            "queue_ms": 500,
+            "input_price": 40,
+            "output_price": 40,
+            "setup_charge": 0
+          },
+          {
+            "id": "m435",
+            "available": true,
+            "modalities": [
+              "text",
+              "image"
+            ],
+            "max_tokens": 8192,
+            "quality": 87,
+            "p95_ms": 1150,
+            "queue_ms": 100,
+            "input_price": 10,
+            "output_price": 140,
+            "setup_charge": 25
+          },
+          {
+            "id": "m997",
+            "available": true,
+            "modalities": [
+              "text",
+              "image"
+            ],
+            "max_tokens": 16384,
+            "quality": 92,
+            "p95_ms": 1050,
+            "queue_ms": 550,
+            "input_price": 60,
+            "output_price": 100,
+            "setup_charge": 75
+          },
+          {
+            "id": "m516",
+            "available": true,
+            "modalities": [
+              "text",
+              "image"
+            ],
+            "max_tokens": 16384,
+            "quality": 85,
+            "p95_ms": 800,
+            "queue_ms": 500,
+            "input_price": 35,
+            "output_price": 80,
+            "setup_charge": 75
+          },
+          {
+            "id": "m857",
+            "available": true,
+            "modalities": [
+              "text"
+            ],
+            "max_tokens": 8192,
+            "quality": 74,
+            "p95_ms": 1200,
+            "queue_ms": 500,
+            "input_price": 50,
+            "output_price": 10,
+            "setup_charge": 100
+          },
+          {
+            "id": "m865",
+            "available": true,
+            "modalities": [
+              "text"
+            ],
+            "max_tokens": 8192,
+            "quality": 68,
+            "p95_ms": 1050,
+            "queue_ms": 50,
+            "input_price": 30,
+            "output_price": 10,
+            "setup_charge": 50
+          }
+        ]
+      },
+      "instructions": "Choose the cheapest feasible model using only these capability cards. It must be available, support the required modality, fit input_tokens + output_tokens, meet minimum quality, fit p95_ms + queue_ms within the latency limit, and fit the budget. Total charge = (input_tokens * input_price + output_tokens * output_price) / 1000 + setup_charge. Prices are charge units per 1000 tokens. Break charge ties by lower total latency, then model ID. Choose defer if no model meets every requirement.",
+      "options": [
+        [
+          "c9941",
+          "Route to model m516 under its supplied capability and price card."
+        ],
+        [
+          "c4557",
+          "Route to model m857 under its supplied capability and price card."
+        ],
+        [
+          "c2514",
+          "Route to model m433 under its supplied capability and price card."
+        ],
+        [
+          "c2095",
+          "Defer: none of the listed models meets all requirements."
+        ],
+        [
+          "c7743",
+          "Route to model m997 under its supplied capability and price card."
+        ],
+        [
+          "c455",
+          "Route to model m435 under its supplied capability and price card."
+        ],
+        [
+          "c6646",
+          "Route to model m865 under its supplied capability and price card."
+        ]
+      ],
+      "gold_index": 5,
+      "predicted_index": 2,
+      "reversed_predicted_original_index": 2,
+      "correct": false,
+      "gold_description": "Route to model m435 under its supplied capability and price card.",
+      "predicted_description": "Route to model m433 under its supplied capability and price card.",
+      "source": {
+        "dataset": "generated_policy_cases",
+        "partition_seed": 20265030,
+        "case": 1,
+        "oracle": "model_routing",
+        "gold": "m435"
+      },
+      "group_id": "model_routing:11853a65165c5b849d4f6a71c2011b4a1a71bf63b10f04ee99eb19dda903f0d9"
+    }
+  ],
+  "browser_controls": [
+    {
+      "row": 1,
+      "task": "browser_controls",
+      "state": {
+        "request": {
+          "order_id": "order-9542",
+          "document_type": "invoice",
+          "language": "en"
+        },
+        "active_panel": "orders",
+        "current_revision": 6964,
+        "observed_revision": 6964,
+        "loading": false,
+        "controls": [
+          {
+            "id": "e372",
+            "order_id": "order-9542",
+            "document_type": "invoice",
+            "language": "de",
+            "visible": true,
+            "enabled": true,
+            "panel": "history",
+            "action": "view"
+          },
+          {
+            "id": "e312",
+            "order_id": "order-5607",
+            "document_type": "invoice",
+            "language": "fr",
+            "visible": true,
+            "enabled": true,
+            "panel": "preview",
+            "action": "pay"
+          },
+          {
+            "id": "e809",
+            "order_id": "order-9542",
+            "document_type": "receipt",
+            "language": "en",
+            "visible": true,
+            "enabled": true,
+            "panel": "orders",
+            "action": "view"
+          },
+          {
+            "id": "e636",
+            "order_id": "order-9542",
+            "document_type": "invoice",
+            "language": "en",
+            "visible": true,
+            "enabled": true,
+            "panel": "orders",
+            "action": "view"
+          },
+          {
+            "id": "e394",
+            "order_id": "order-1475",
+            "document_type": "receipt",
+            "language": "en",
+            "visible": true,
+            "enabled": true,
+            "panel": "preview",
+            "action": "pay"
+          },
+          {
+            "id": "e278",
+            "order_id": "order-3932",
+            "document_type": "invoice",
+            "language": "de",
+            "visible": true,
+            "enabled": false,
+            "panel": "preview",
+            "action": "pay"
+          },
+          {
+            "id": "e671",
+            "order_id": "order-3280",
+            "document_type": "shipping_label",
+            "language": "en",
+            "visible": true,
+            "enabled": true,
+            "panel": "orders",
+            "action": "view"
+          },
+          {
+            "id": "e512",
+            "order_id": "order-9542",
+            "document_type": "receipt",
+            "language": "de",
+            "visible": true,
+            "enabled": false,
+            "panel": "orders",
+            "action": "pay"
+          }
+        ]
+      },
+      "instructions": "Choose one next read-only action. First refresh if observed_revision differs from current_revision. Otherwise wait if loading is true. Otherwise click the unique visible, enabled view control in active_panel matching the requested order_id, document_type, and language. Ignore hidden, disabled, other-panel, wrong-document and payment controls. Choose blocked if no matching control exists.",
+      "options": [
+        [
+          "c5301",
+          "Refresh the stale page observation."
+        ],
+        [
+          "c1315",
+          "Click observed control e809."
+        ],
+        [
+          "c9205",
+          "Click observed control e372."
+        ],
+        [
+          "c5883",
+          "Click observed control e671."
+        ],
+        [
+          "c5916",
+          "No allowed matching view control is present."
+        ],
+        [
+          "c7041",
+          "Click observed control e636."
+        ],
+        [
+          "c5256",
+          "Click observed control e278."
+        ],
+        [
+          "c985",
+          "Wait for the page to finish loading."
+        ],
+        [
+          "c1325",
+          "Click observed control e394."
+        ],
+        [
+          "c1961",
+          "Click observed control e312."
+        ],
+        [
+          "c685",
+          "Click observed control e512."
+        ]
+      ],
+      "gold_index": 5,
+      "predicted_index": 2,
+      "reversed_predicted_original_index": 2,
+      "correct": false,
+      "gold_description": "Click observed control e636.",
+      "predicted_description": "Click observed control e372.",
+      "source": {
+        "dataset": "generated_policy_cases",
+        "partition_seed": 20265033,
+        "case": 1,
+        "oracle": "browser_controls",
+        "gold": "e636"
+      },
+      "group_id": "browser_controls:c50ba02e97c6dd285c67e04bd00d4a4fb32814aceb7d7c4391873656e4b28467"
+    },
+    {
+      "row": 6,
+      "task": "browser_controls",
+      "state": {
+        "request": {
+          "order_id": "order-2824",
+          "document_type": "receipt",
+          "language": "de"
+        },
+        "active_panel": "orders",
+        "current_revision": 4879,
+        "observed_revision": 4878,
+        "loading": false,
+        "controls": [
+          {
+            "id": "e250",
+            "order_id": "order-3308",
+            "document_type": "invoice",
+            "language": "en",
+            "visible": true,
+            "enabled": true,
+            "panel": "history",
+            "action": "pay"
+          },
+          {
+            "id": "e526",
+            "order_id": "order-2224",
+            "document_type": "receipt",
+            "language": "en",
+            "visible": true,
+            "enabled": true,
+            "panel": "orders",
+            "action": "view"
+          },
+          {
+            "id": "e530",
+            "order_id": "order-2824",
+            "document_type": "invoice",
+            "language": "de",
+            "visible": true,
+            "enabled": true,
+            "panel": "orders",
+            "action": "view"
+          },
+          {
+            "id": "e799",
+            "order_id": "order-6891",
+            "document_type": "invoice",
+            "language": "en",
+            "visible": true,
+            "enabled": true,
+            "panel": "history",
+            "action": "view"
+          },
+          {
+            "id": "e798",
+            "order_id": "order-2824",
+            "document_type": "invoice",
+            "language": "de",
+            "visible": false,
+            "enabled": true,
+            "panel": "history",
+            "action": "view"
+          },
+          {
+            "id": "e573",
+            "order_id": "order-4435",
+            "document_type": "receipt",
+            "language": "en",
+            "visible": true,
+            "enabled": false,
+            "panel": "history",
+            "action": "pay"
+          },
+          {
+            "id": "e730",
+            "order_id": "order-6834",
+            "document_type": "shipping_label",
+            "language": "de",
+            "visible": true,
+            "enabled": true,
+            "panel": "orders",
+            "action": "view"
+          },
+          {
+            "id": "e755",
+            "order_id": "order-2824",
+            "document_type": "invoice",
+            "language": "de",
+            "visible": true,
+            "enabled": false,
+            "panel": "orders",
+            "action": "pay"
+          }
+        ]
+      },
+      "instructions": "Choose one next read-only action. First refresh if observed_revision differs from current_revision. Otherwise wait if loading is true. Otherwise click the unique visible, enabled view control in active_panel matching the requested order_id, document_type, and language. Ignore hidden, disabled, other-panel, wrong-document and payment controls. Choose blocked if no matching control exists.",
+      "options": [
+        [
+          "c3290",
+          "Wait for the page to finish loading."
+        ],
+        [
+          "c2613",
+          "Click observed control e755."
+        ],
+        [
+          "c9928",
+          "Click observed control e530."
+        ],
+        [
+          "c7709",
+          "Click observed control e526."
+        ],
+        [
+          "c7802",
+          "Click observed control e798."
+        ],
+        [
+          "c3474",
+          "Click observed control e730."
+        ],
+        [
+          "c1215",
+          "Click observed control e573."
+        ],
+        [
+          "c4598",
+          "Click observed control e250."
+        ],
+        [
+          "c6000",
+          "Click observed control e799."
+        ],
+        [
+          "c2085",
+          "No allowed matching view control is present."
+        ],
+        [
+          "c7190",
+          "Refresh the stale page observation."
+        ]
+      ],
+      "gold_index": 10,
+      "predicted_index": 2,
+      "reversed_predicted_original_index": 2,
+      "correct": false,
+      "gold_description": "Refresh the stale page observation.",
+      "predicted_description": "Click observed control e530.",
+      "source": {
+        "dataset": "generated_policy_cases",
+        "partition_seed": 20265033,
+        "case": 6,
+        "oracle": "browser_controls",
+        "gold": "refresh"
+      },
+      "group_id": "browser_controls:fa30f83b2302db57fd520efc437e055d18ccd4470b2d27a842b761ab2ec9565b"
+    }
+  ],
+  "claim_support_ocnli": [
+    {
+      "row": 15,
+      "task": "claim_support_ocnli",
+      "state": {
+        "原文": "就取景是黑白的,黑白.",
+        "主张": "黑白的取景比彩色的好"
+      },
+      "instructions": "仅根据给出的原文判断主张是得到支持、与原文矛盾，还是信息不足。不要用常识补充原文没有的信息。",
+      "options": [
+        [
+          "c5730",
+          "未知：原文不足以确定主张成立或不成立。"
+        ],
+        [
+          "c5403",
+          "矛盾：原文与主张不能同时成立。"
+        ],
+        [
+          "c2563",
+          "支持：仅根据原文，主张必然成立。"
+        ]
+      ],
+      "gold_index": 0,
+      "predicted_index": 2,
+      "reversed_predicted_original_index": 2,
+      "correct": false,
+      "gold_description": "未知：原文不足以确定主张成立或不成立。",
+      "predicted_description": "支持：仅根据原文，主张必然成立。",
+      "source": {
+        "dataset": "OCNLI",
+        "official_split": "train",
+        "id": 660,
+        "gold": "neutral"
+      },
+      "group_id": "claim_support_ocnli:a21a215aa66f872fce259c26c00bdade901c889c2ca79f79f69aad866509650d"
+    },
+    {
+      "row": 17,
+      "task": "claim_support_ocnli",
+      "state": {
+        "原文": "主任不当了,但我教香港文学",
+        "主张": "我还教英国文学"
+      },
+      "instructions": "仅根据给出的原文判断主张是得到支持、与原文矛盾，还是信息不足。不要用常识补充原文没有的信息。",
+      "options": [
+        [
+          "c9203",
+          "矛盾：原文与主张不能同时成立。"
+        ],
+        [
+          "c3993",
+          "未知：原文不足以确定主张成立或不成立。"
+        ],
+        [
+          "c5552",
+          "支持：仅根据原文，主张必然成立。"
+        ]
+      ],
+      "gold_index": 1,
+      "predicted_index": 0,
+      "reversed_predicted_original_index": 0,
+      "correct": false,
+      "gold_description": "未知：原文不足以确定主张成立或不成立。",
+      "predicted_description": "矛盾：原文与主张不能同时成立。",
+      "source": {
+        "dataset": "OCNLI",
+        "official_split": "train",
+        "id": 18043,
+        "gold": "neutral"
+      },
+      "group_id": "claim_support_ocnli:54fa7428eb282b0f83a095eda5e9cbd9e0f3d413deb2294fec117ece31a62aab"
+    }
+  ],
+  "support_routing_banking": [],
+  "retrieval_answerability": [
+    {
+      "row": 23,
+      "task": "retrieval_answerability",
+      "state": {
+        "question": "How many community colleges serve Texas?",
+        "retrieved_passage": "Three community college districts exist with campuses in and around Houston. The Houston Community College System serves most of Houston. The northwestern through northeastern parts of the city are served by various campuses of the Lone Star College System, while the southeastern portion of Houston is served by San Jacinto College, and a northeastern portion is served by Lee College. The Houston Community College and Lone Star College systems are within the 10 largest institutions of higher learning in the United States."
+      },
+      "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+      "options": [
+        [
+          "c3469",
+          "The passage does not contain the requested answer; retrieve more evidence."
+        ],
+        [
+          "c5172",
+          "The passage contains an answer to the specific question."
+        ]
+      ],
+      "gold_index": 0,
+      "predicted_index": 1,
+      "reversed_predicted_original_index": 1,
+      "correct": false,
+      "gold_description": "The passage does not contain the requested answer; retrieve more evidence.",
+      "predicted_description": "The passage contains an answer to the specific question.",
+      "source": {
+        "dataset": "SQuAD 2.0",
+        "official_split": "train",
+        "id": "5ad42371604f3c001a40082d",
+        "article": "Houston",
+        "gold": "missing"
+      },
+      "group_id": "retrieval_answerability:00cc7d9b5e8b01238856bf7f9d2c5bb12313bbe47f9f612374db95f0f30519ac"
+    },
+    {
+      "row": 102,
+      "task": "retrieval_answerability",
+      "state": {
+        "question": "How many pages was the original Unicode standard?",
+        "retrieved_passage": "The Consortium first published The Unicode Standard (ISBN 0-321-18578-1) in 1991 and continues to develop standards based on that original work. The latest version of the standard, Unicode 8.0, was released in June 2015 and is available from the consortium's website. The last of the major versions (versions x.0) to be published in book form was Unicode 5.0 (ISBN 0-321-48091-0), but since Unicode 6.0 the full text of the standard is no longer being published in book form. In 2012, however, it was announced that only the core specification for Unicode version 6.1 would be made available as a 692-page print-on-demand paperback. Unlike the previous major version printings of the Standard, the print-on-demand core specification does not include any code charts or standard annexes, but the entire standard, including the core specification, will still remain freely available on the Unicode website."
+      },
+      "instructions": "Does this passage contain enough explicit information to answer the question? A related topic is not sufficient. Do not answer from outside knowledge.",
+      "options": [
+        [
+          "c7525",
+          "The passage contains an answer to the specific question."
+        ],
+        [
+          "c9668",
+          "The passage does not contain the requested answer; retrieve more evidence."
+        ]
+      ],
+      "gold_index": 1,
+      "predicted_index": 0,
+      "reversed_predicted_original_index": 0,
+      "correct": false,
+      "gold_description": "The passage does not contain the requested answer; retrieve more evidence.",
+      "predicted_description": "The passage contains an answer to the specific question.",
+      "source": {
+        "dataset": "SQuAD 2.0",
+        "official_split": "train",
+        "id": "5acd1b1d07355d001abf3545",
+        "article": "Unicode",
+        "gold": "missing"
+      },
+      "group_id": "retrieval_answerability:f922e0d1e1448d98bc93d0bf5459f4951c10e10111d21dab6ad42325fc831330"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "reference": {
+    "accuracy": 1.0,
+    "mean_nll": 0.05068872804986313,
+    "predictions": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      2,
+      0,
+      2,
+      1,
+      1,
+      0,
+      1,
+      1,
+      2,
+      2
+    ],
+    "rows": 16
+  },
+  "reload_first": {
+    "accuracy": 1.0,
+    "mean_nll": 0.04899052841938101,
+    "predictions": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      2,
+      0,
+      2,
+      1,
+      1,
+      0,
+      1,
+      1,
+      2,
+      2
+    ],
+    "rows": 16
+  },
+  "reload_repeat": {
+    "accuracy": 1.0,
+    "mean_nll": 0.04899052841938101,
+    "predictions": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      2,
+      0,
+      2,
+      1,
+      1,
+      0,
+      1,
+      1,
+      2,
+      2
+    ],
+    "rows": 16
+  },
+  "head_sha256": "57e40e79dc110576fba98efd22aef74bb203627bb7a6a176aaaef736cc25752b",
+  "lora_sha256": "42070c836cdf246f5b8f9a39512cac9d2fa3712c6f0a0ec64b23669d324dd07b",
+  "checkpoint_reloaded": true,
+  "predictions_match": true,
+  "probabilities_match_within_pipeline_tolerance": false,
+  "absolute_nll_difference": 0.0016981996304821223,
+  "relative_nll_difference": 0.033502510238796725,
+  "same_process_repeat_exactly_equal": true,
+  "pipeline_status": "failed",
+  "failed_stage": "reload"
+}

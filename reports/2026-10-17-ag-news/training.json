@@ -1,0 +1,107 @@
+{
+  "run_kind": "sft",
+  "upstream_commit": "6039cf8b64c6074e75804000c07ac3d4cce795f7",
+  "source": {
+    "source": "/opt/models/decider",
+    "copied_weights": {
+      "head.safetensors": "daad0727152b6185447cee36f78230c144312feb7b19f02749b19645238b5287",
+      "lora/adapter_model.safetensors": "701bdb895887097f7954ec7eb06f7937d3b790035b5462195eb26abd80a4aebc"
+    }
+  },
+  "data_manifest": {
+    "schema": "decider_choice_v1",
+    "label_source": "user_supplied",
+    "split_seed": 17,
+    "requested_fractions": [
+      0.7,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "split_strategy": "provided_splits_checked_for_leakage",
+    "splits": {
+      "train": {
+        "rows": 1600,
+        "sha256": "4e21f31ea333f435500ea3a4334d135bb1db8ffaddd122bc656e0a2de3b5381d"
+      },
+      "validation": {
+        "rows": 200,
+        "sha256": "0c8394d342df6e77a8c22c2560a4ad6ffaea0caaec28c57a1d205b4a2c7c9c42"
+      },
+      "calibration": {
+        "rows": 200,
+        "sha256": "f6c443a31fc8d98c72306d38391bf652923e2d4be4a2a805d40d8d04ef10b783"
+      },
+      "test": {
+        "rows": 200,
+        "sha256": "d5d7611d267fe4069738b2b3b2776fc85e5e613e6abe7abc7e0cf7e617ed3595"
+      }
+    }
+  },
+  "config": {
+    "upstream": "/var/cache/decider/ag-news-unified-20261017-000530/upstream",
+    "checkpoint": "/opt/models/decider",
+    "base_model": "/opt/models/base",
+    "data": "/var/cache/decider/ag-news-unified-20261017-000530/result/pipeline/data",
+    "output": "/var/cache/decider/ag-news-unified-20261017-000530/result/pipeline/run-v1",
+    "device": "cuda",
+    "smoke": false,
+    "epochs": 1,
+    "batch_size": 2,
+    "accumulation": 8,
+    "lr": 2e-05,
+    "head_lr": 0.0001,
+    "eval_every": 50,
+    "seed": 20261016,
+    "cpu_threads": 4
+  },
+  "train_rows": 1600,
+  "validation_rows": 200,
+  "max_tokens": 443,
+  "initial_head_sha256": "b4ea9cbb164c7e9dfb91bfb6fbb65ad68999317b976be852c5f59acd106b2015",
+  "initial_lora_sha256": "da7b081717b1beb5e1d9a8e6ff773ed2efdb5d259a99af095a08fabb49cd3751",
+  "trainable_lora_parameters": 16819200,
+  "trainable_head_parameters": 1053184,
+  "baseline_validation": {
+    "accuracy": 0.905,
+    "mean_nll": 0.251987521443516,
+    "rows": 200
+  },
+  "history": [
+    {
+      "step": 50,
+      "validation": {
+        "accuracy": 0.925,
+        "mean_nll": 0.1863773937919177,
+        "rows": 200
+      }
+    },
+    {
+      "step": 100,
+      "validation": {
+        "accuracy": 0.915,
+        "mean_nll": 0.1889438128331676,
+        "rows": 200
+      }
+    }
+  ],
+  "best_checkpoint": "/var/cache/decider/ag-news-unified-20261017-000530/result/pipeline/run-v1/best",
+  "calibration": "not_yet_fitted",
+  "environment": {
+    "packages": {
+      "torch": "2.7.1+cu126",
+      "transformers": "5.17.0",
+      "peft": "0.21.0",
+      "tokenizers": "0.23.2",
+      "safetensors": "0.8.0"
+    },
+    "cuda": "12.6",
+    "gpu": "NVIDIA L4"
+  },
+  "best_step": 50,
+  "completed_steps": 100,
+  "final_head_sha256": "de537317f2f16656048fff005cf3ba73d55e4e690eb3ec327a15469f85ac6e3d",
+  "final_lora_sha256": "9ea557f8f56e88c5ce91c9edaf44d9cbd6ab64d86d6d5ffd7951809608bf21aa",
+  "wall_seconds": 321.78,
+  "max_gpu_memory_bytes": 4403803648
+}

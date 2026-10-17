@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/usr/local/bin/python",
+    "finetune.py",
+    "--data",
+    "dataset/choices",
+    "--config",
+    "config.json",
+    "--output",
+    "/var/cache/decider/browser-sft-20261017-020045/result/pipeline"
+  ],
+  "started_at": 1792202514.4454098,
+  "run_kind": "full_gpu",
+  "exit_code": 0,
+  "finished_at": 1792203807.1030607
+}

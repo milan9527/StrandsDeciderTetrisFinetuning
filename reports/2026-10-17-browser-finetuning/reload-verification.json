@@ -1,0 +1,29 @@
+{
+  "checkpoint_reloaded": true,
+  "predictions_match": true,
+  "probe": {
+    "accuracy": 1.0,
+    "mean_nll": 0.0034290878611500375,
+    "predictions": [
+      7,
+      6,
+      7,
+      2,
+      10,
+      10,
+      8,
+      7,
+      3,
+      8,
+      3,
+      0,
+      5,
+      2,
+      2,
+      7
+    ],
+    "rows": 16
+  },
+  "head_sha256": "85c862a530a02f8efa005cdbae7d7923129dcd95701e12111369162dd30680e8",
+  "lora_sha256": "91d2283ff333a8d2388c421ec0edce09916249849e9d94b7f2f7d4c01a590311"
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "decider_choice_v1",
+  "labels_semantically_verified": false,
+  "label_source": "user_supplied",
+  "no_cross_split_state_or_group_leakage": true,
+  "splits": {
+    "train": {
+      "rows": 720,
+      "tasks": {
+        "support_routing_banking": 720
+      },
+      "option_counts": {
+        "12": 720
+      }
+    },
+    "validation": {
+      "rows": 120,
+      "tasks": {
+        "support_routing_banking": 120
+      },
+      "option_counts": {
+        "12": 120
+      }
+    },
+    "calibration": {
+      "rows": 120,
+      "tasks": {
+        "support_routing_banking": 120
+      },
+      "option_counts": {
+        "12": 120
+      }
+    },
+    "discovery": {
+      "rows": 120,
+      "tasks": {
+        "support_routing_banking": 120
+      },
+      "option_counts": {
+        "12": 120
+      }
+    },
+    "test": {
+      "rows": 240,
+      "tasks": {
+        "support_routing_banking": 240
+      },
+      "option_counts": {
+        "12": 240
+      }
+    }
+  }
+}

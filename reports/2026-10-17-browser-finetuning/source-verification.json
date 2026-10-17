@@ -1,0 +1,96 @@
+{
+  "rows": 2360,
+  "oracle_labels_verified": true,
+  "all_partitions": {
+    "schema": "decider_choice_v1",
+    "labels_semantically_verified": false,
+    "label_source": "user_supplied",
+    "no_cross_split_state_or_group_leakage": true,
+    "splits": {
+      "train": {
+        "rows": 1600,
+        "tasks": {
+          "browser_controls": 1600
+        },
+        "option_counts": {
+          "11": 1600
+        }
+      },
+      "validation": {
+        "rows": 200,
+        "tasks": {
+          "browser_controls": 200
+        },
+        "option_counts": {
+          "11": 200
+        }
+      },
+      "calibration": {
+        "rows": 200,
+        "tasks": {
+          "browser_controls": 200
+        },
+        "option_counts": {
+          "11": 200
+        }
+      },
+      "test": {
+        "rows": 200,
+        "tasks": {
+          "browser_controls": 200
+        },
+        "option_counts": {
+          "11": 200
+        }
+      },
+      "discovery": {
+        "rows": 160,
+        "tasks": {
+          "browser_controls": 160
+        },
+        "option_counts": {
+          "11": 160
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "train.jsonl.gz": "3b9f03cf62215a01891d96b9c30b2b6518c84883b446ca9baa48d2f5f1ba0a48",
+    "validation.jsonl.gz": "479f77e76167306cccb2c84cfe6d8c14d1475ca3d8ade1865a488df3a7f59700",
+    "calibration.jsonl.gz": "27bd8b463e9cd42223bb21b4315bc7f43bc21cbd703b29be86e07b259f69dad8",
+    "test.jsonl.gz": "faf8ec9831204997fb6351dba51e46677a67969927364431ce76f71e31814c65",
+    "discovery.jsonl.gz": "b4ed2d2306c21187aba93ad1ad22d78a0913296ec0af4bfeb6f847efc50a76e6"
+  },
+  "by_action": {
+    "train": {
+      "click_control": 960,
+      "refresh": 320,
+      "wait": 160,
+      "blocked": 160
+    },
+    "validation": {
+      "click_control": 120,
+      "refresh": 40,
+      "wait": 20,
+      "blocked": 20
+    },
+    "calibration": {
+      "click_control": 120,
+      "refresh": 40,
+      "wait": 20,
+      "blocked": 20
+    },
+    "test": {
+      "click_control": 120,
+      "refresh": 40,
+      "wait": 20,
+      "blocked": 20
+    },
+    "discovery": {
+      "click_control": 96,
+      "refresh": 32,
+      "wait": 16,
+      "blocked": 16
+    }
+  }
+}

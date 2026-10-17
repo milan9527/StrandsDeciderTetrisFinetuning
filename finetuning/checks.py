@@ -94,7 +94,11 @@ def reload_check(args):
     if not math.isfinite(result["mean_nll"]) or not math.isclose(
         result["mean_nll"], report["reload_probe"]["mean_nll"], rel_tol=0.01, abs_tol=1e-4,
     ):
-        raise ValueError("Reloaded checkpoint changed probe probabilities/loss")
+        raise ValueError(
+            "Reloaded checkpoint changed probe probabilities/loss: "
+            f"expected mean_nll={report['reload_probe']['mean_nll']}, "
+            f"actual mean_nll={result['mean_nll']} (rel_tol=0.01, abs_tol=1e-4)"
+        )
     return {"checkpoint_reloaded": True, "predictions_match": True, "probe": result,
             "head_sha256": weight_digest(model.head.parameters()),
             "lora_sha256": weight_digest(p for n, p in model.torso.named_parameters() if "lora_" in n)}

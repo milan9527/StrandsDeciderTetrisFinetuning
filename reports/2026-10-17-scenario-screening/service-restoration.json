@@ -1,0 +1,26 @@
+{
+  "checked_at_unix": 1792198624.7435434,
+  "instance": "i-0daca64f56056aa1c",
+  "before": {
+    "desiredCount": 1,
+    "runningCount": 1,
+    "taskDefinition": "arn:aws:ecs:us-east-1:632930644527:task-definition/strands-decider-demo-gpu-model:3"
+  },
+  "after": {
+    "desiredCount": 1,
+    "runningCount": 1,
+    "taskDefinition": "arn:aws:ecs:us-east-1:632930644527:task-definition/strands-decider-demo-gpu-model:3"
+  },
+  "pending_count": 0,
+  "task_status": "RUNNING",
+  "controller_concurrency": 1,
+  "schedule": "ENABLED",
+  "startup_evidence": [
+    {
+      "timestamp": 1792198556166,
+      "message": "INFO:     Uvicorn running on http://0.0.0.0:8099 (Press CTRL+C to quit)",
+      "ingestionTime": 1792198556866
+    }
+  ],
+  "temporary_role_deleted": true
+}
